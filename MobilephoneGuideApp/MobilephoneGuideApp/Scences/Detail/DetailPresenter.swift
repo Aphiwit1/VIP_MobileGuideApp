@@ -12,6 +12,7 @@ protocol DetailPresenterInterface {
   func presentSomething(response: Detail.Something.Response)
   func presentDetail(response: Detail.ShowDetail.Response)
   func presentImageData(response: Detail.GetImage.Response)
+  
 }
 
 class DetailPresenter: DetailPresenterInterface {

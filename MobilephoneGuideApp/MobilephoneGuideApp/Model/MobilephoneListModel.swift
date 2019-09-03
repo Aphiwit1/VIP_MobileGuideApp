@@ -10,13 +10,12 @@ import Foundation
 
 typealias MobilephoneListModel = [MobileList]
 
-class  MobileList: Codable {
+class MobileList: Codable {
     let rating: Double
     let id: Int
     let thumbImageURL: String
     let price: Double
     let brand, name, description: String
-    
     var favSelected: Bool? = false
 }
 

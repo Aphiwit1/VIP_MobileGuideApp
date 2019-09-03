@@ -10,7 +10,7 @@ import UIKit
 
 protocol TabAllRouterInput {
   func navigateToSomewhere()
-  func navigateToDetailPage(mobile: TabAll.FeedDataTable.ViewModel.DisplayMobile)
+  func navigateToDetailPage(mobile: TabAll.DisplayMobile)
 }
 
 class TabAllRouter: TabAllRouterInput {
@@ -57,7 +57,7 @@ class TabAllRouter: TabAllRouterInput {
   
   
   
-  func navigateToDetailPage(mobile: TabAll.FeedDataTable.ViewModel.DisplayMobile) {
+  func navigateToDetailPage(mobile: TabAll.DisplayMobile) {
   
   
       let storyboard = UIStoryboard(name: "Main", bundle: nil)

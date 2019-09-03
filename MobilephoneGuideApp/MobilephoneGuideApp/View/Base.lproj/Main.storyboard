@@ -267,6 +267,10 @@
                                                                         <constraint firstAttribute="height" constant="24" id="QdT-LU-onC"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="starDefault.png"/>
+                                                                    <state key="selected" image="starSelected.png"/>
+                                                                    <connections>
+                                                                        <action selector="checkFavouriteButtonWithSender:" destination="f94-jk-eqB" eventType="touchUpInside" id="NKd-hj-7S7"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -307,7 +311,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mobileDescription" destination="QQ3-lf-4dR" id="nOT-aC-wDJ"/>
-                                            <outlet property="mobileFavBtn" destination="reb-4A-ZFS" id="3QN-k7-kQ2"/>
+                                            <outlet property="mobileFavBtn" destination="reb-4A-ZFS" id="ucG-OX-n7c"/>
                                             <outlet property="mobileImage" destination="TO5-Hf-Icg" id="zY1-Sc-Bff"/>
                                             <outlet property="mobilePrice" destination="Dl9-bS-9LT" id="FW2-LO-Cv0"/>
                                             <outlet property="mobileRating" destination="Z9h-Rn-0dm" id="lVI-Gd-JZv"/>
@@ -336,6 +340,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Favourite"/>
+                                <connections>
+                                    <action selector="favButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="px3-FG-WTK"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gf-e5B">
                                 <rect key="frame" x="0.0" y="134" width="414" height="6"/>

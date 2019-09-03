@@ -24,7 +24,7 @@ struct Detail {
     struct Request {}
     /// Data struct sent to Presenter
     struct Response {
-       var displayMobile :  TabAll.FeedDataTable.ViewModel.DisplayMobile
+       var displayMobile :  TabAll.DisplayMobile
     }
     
     /// Data struct sent to ViewController

@@ -10,45 +10,66 @@ import UIKit
 
 protocol TabAllPresenterInterface {
   func presentData(response: TabAll.FeedDataTable.Response)
-  
+  func presentDataFavourite(response: TabAll.SetFavData.Response)
+  func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response)
 }
 
 class TabAllPresenter: TabAllPresenterInterface {
+  
+  
+ 
     weak var viewController: TabAllViewControllerInterface!
 
     
     func presentData(response: TabAll.FeedDataTable.Response) {
-//        var displayMobileList : [TabAll.FeedDataTable.ViewModel.DisplayMobile] = []
-//        for mobile in response.mobileListModel {
-//            let price = "Price: $\(String(mobile.price))"
-//            let rating = "Rating: $\(String(mobile.rating))"
-//            let name = mobile.name
-//            let description = mobile.description
-//            let displayMobile = TabAll.FeedDataTable.ViewModel.DisplayMobile(
-//                mobilename: name,
-//                mobileRating: rating,
-//                mobilePrice: price,
-//                mobileDescription: description
-//            )
-//            displayMobileList.append(displayMobile)
-//        }
-//        let mobileList = TabAll.FeedDataTable.ViewModel(mobileListModel: response.mobileListModel)
-        
+      
         let displayMobileList = response.mobileListModel.map {
-            TabAll.FeedDataTable.ViewModel.DisplayMobile(
-              
+            TabAll.DisplayMobile(
               mobileID: $0.id,
               mobilename: $0.name,
               mobileRating: "Rating: $\(String($0.rating))",
               mobilePrice: "Price: $\(String($0.price))",
               mobileDescription: $0.description,
-              mobileImage: $0.thumbImageURL
+              mobileImage: $0.thumbImageURL,
+              isFav: $0.favSelected ?? false
             )
         }
         let mobileViewModel = TabAll.FeedDataTable.ViewModel(
             displayMobileList: displayMobileList
         )
         viewController.displayResultData(viewModel: mobileViewModel)
-        
     }
+  
+  func presentDataFavourite(response: TabAll.SetFavData.Response) {
+    let displayFavList = response.mobileListModel.map {
+      TabAll.DisplayMobile(
+        mobileID: $0.id,
+        mobilename: $0.name,
+        mobileRating: "Rating: $\(String($0.rating))",
+        mobilePrice: "Price: $\(String($0.price))",
+        mobileDescription: $0.description,
+        mobileImage: $0.thumbImageURL,
+        isFav: $0.favSelected ?? false
+      )
+    }
+//    let mobileFavList = TabAll.SetFavData.ViewModel(mobileFavList: displayFavList)
+//    viewController.displayFavouriteTab(viewModel: mobileFavList)
+  }
+  
+  func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response) {
+    let displayFavList = response.mobileListModel.map {
+      TabAll.DisplayMobile(
+        mobileID: $0.id,
+        mobilename: $0.name,
+        mobileRating: "Rating: $\(String($0.rating))",
+        mobilePrice: "Price: $\(String($0.price))",
+        mobileDescription: $0.description,
+        mobileImage: $0.thumbImageURL,
+        isFav: $0.favSelected ?? false
+      )
+    }
+    let mobileFavList = TabAll.ShowFavouritesTab.ViewModel(mobileFavList: displayFavList)
+    viewController.displayFavouriteTab(viewModel: mobileFavList)
+  }
+  
 }

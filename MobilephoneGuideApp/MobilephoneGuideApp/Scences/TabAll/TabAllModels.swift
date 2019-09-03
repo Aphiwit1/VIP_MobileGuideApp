@@ -9,40 +9,85 @@
 import UIKit
 
 struct TabAll {
-  /// This structure represents a use case
-  struct Something {
+  
+  struct DisplayMobile {
+    let mobileID: Int
+    let mobilename : String
+    let mobileRating : String
+    let mobilePrice  : String
+    let mobileDescription  : String
+    let mobileImage: String
+    let isFav : Bool
+  }
+  
+  struct FeedDataTable {
     /// Data struct sent to Interactor
     struct Request {}
     /// Data struct sent to Presenter
-    struct Response {}
+    struct Response {
+      var mobileListModel: [MobileList]
+    }
     /// Data struct sent to ViewController
     struct ViewModel {
-        
+      // var mobileListModel: [MobileList]le
+      
+      var displayMobileList : [ DisplayMobile ]
+      
+     
     }
   }
-    
-    struct FeedDataTable {
-        /// Data struct sent to Interactor
-        struct Request {}
-        /// Data struct sent to Presenter
-        struct Response {
-            var mobileListModel: [MobileList]
-        }
-        /// Data struct sent to ViewController
-        struct ViewModel {
-           // var mobileListModel: [MobileList]le
-            
-            var displayMobileList : [ DisplayMobile ]
-        
-            struct DisplayMobile {
-                let mobileID: Int
-                let mobilename : String
-                let mobileRating : String
-                let mobilePrice  : String
-                let mobileDescription  : String
-                let mobileImage: String
-            }
-        }
+  
+  
+  
+  struct SortTable {
+    /// Data struct sent to Interactor
+    struct Request {
+      enum sortTyle {
+        case PriceHightToLow
+        case PriceLowToHight
+        case RatingHightToLow
+      }
+    }
+    /// Data struct sent to Presenter
+    struct Response {
+      
+    }
+    /// Data struct sent to ViewController
+    struct ViewModel {
+      
+      var mobileSortTyle : [ DisplayMobile ]
+      
+    }
+  }
+
+  struct SetFavData {
+    /// Data struct sent to Interactor
+    struct Request {
+      let mobileID: Int
+      let isFav: Bool
+    }
+    /// Data struct sent to Presenter
+    struct Response {
+      var mobileListModel: [MobileList]
     }
     
+    struct ViewModel {
+      var mobileFavList: [ DisplayMobile ]
+      
+     
+    }
+  }
+  
+  struct ShowFavouritesTab {
+    struct Request {}
+    
+    struct Response {
+      var mobileListModel: [MobileList]
+    }
+    
+    struct ViewModel {
+      var mobileFavList: [ DisplayMobile ]
+    }
+  }
 }
+
