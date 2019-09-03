@@ -10,9 +10,11 @@ import UIKit
 
 protocol DetailPresenterInterface {
   func presentSomething(response: Detail.Something.Response)
+  func presentImageData(response: Detail.GetImage.Response)
 }
 
 class DetailPresenter: DetailPresenterInterface {
+  
   weak var viewController: DetailViewControllerInterface!
 
   // MARK: - Presentation logic
@@ -23,4 +25,11 @@ class DetailPresenter: DetailPresenterInterface {
     let viewModel = Detail.Something.ViewModel()
     viewController.displaySomething(viewModel: viewModel)
   }
+  
+  
+  func presentImageData(response: Detail.GetImage.Response) {
+    let viewModel = Detail.GetImage.ViewModel(imageURLs: response.imageURLs)
+     viewController.displayImage(viewModel: viewModel)
+  }
+  
 }

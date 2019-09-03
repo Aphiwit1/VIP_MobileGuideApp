@@ -10,9 +10,12 @@ import UIKit
 
 protocol DetailViewControllerInterface: class {
   func displaySomething(viewModel: Detail.Something.ViewModel)
+  func displayImage(viewModel: Detail.GetImage.ViewModel)
 }
 
 class DetailViewController: UIViewController, DetailViewControllerInterface,UICollectionViewDataSource, UICollectionViewDelegate {
+  
+  
 
   var interactor: DetailInteractorInterface!
   var router: DetailRouter!
@@ -50,17 +53,17 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomethingOnLoad()
+//    doSomethingOnLoad()
   }
 
   // MARK: - Event handling
 
-  func doSomethingOnLoad() {
-    // NOTE: Ask the Interactor to do some work
-
-    let request = Detail.Something.Request()
-    interactor.doSomething(request: request)
-  }
+//  func doSomethingOnLoad() {
+//    // NOTE: Ask the Interactor to do some work
+//
+//    let request = Detail.Something.Request()
+//    interactor.doSomething(request: request)
+//  }
 
   // MARK: - Display logic
 
@@ -83,11 +86,18 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
+       return 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colllectionCell", for: indexPath) as? DetailCollectionViewCell
+    
+    return cell!
+  }
+  
+  
+  func displayImage(viewModel: Detail.GetImage.ViewModel) {
+     
   }
   
 }
