@@ -41,7 +41,7 @@ class TabAllWorker {
                 let result = try decoder.decode([MobileList].self, from: response.data!)
                 completion(result)
             }catch {
-                print("---error --->", error.localizedDescription)
+                print(error.localizedDescription)
             }
         }
     }

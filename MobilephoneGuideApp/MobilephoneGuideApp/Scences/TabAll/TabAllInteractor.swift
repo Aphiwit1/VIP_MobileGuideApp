@@ -73,16 +73,22 @@ class TabAllInteractor: TabAllInteractorInterface {
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
         first.rating > second.rating
       }
+      
+      
+      if resquest.tagSoprt == 0 {
+        let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
+        presenter.presentData(response: response)
+      }else {
+        
+        let favourites = dataArray.filter { $0.favSelected ?? false  }
+        let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
+        presenter.presentFavouriteTab(response: response)
+      }
+      
     }
   
-    if resquest.tagSoprt == 0 {
-      let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
-      presenter.presentData(response: response)
-    }else {
-      let favourites = dataArray.filter { $0.favSelected ?? false  }
-      let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
-      presenter.presentFavouriteTab(response: response)
-    }
+   
+    
 
   }
   

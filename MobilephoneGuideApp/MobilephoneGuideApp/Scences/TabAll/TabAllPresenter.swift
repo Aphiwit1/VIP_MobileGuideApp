@@ -13,8 +13,8 @@ protocol TabAllPresenterInterface {
   func presentDataFavourite(response: TabAll.SetFavData.Response)
   func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response)
   func presentAllTab(response: TabAll.ShowAllTab.Response)
-
 }
+
 
 class TabAllPresenter: TabAllPresenterInterface {
   
@@ -22,7 +22,6 @@ class TabAllPresenter: TabAllPresenterInterface {
 
     
     func presentData(response: TabAll.FeedDataTable.Response) {
-      
         let displayMobileList = response.mobileListModel.map {
             TabAll.DisplayMobile(
               mobileID: $0.id,
@@ -55,6 +54,7 @@ class TabAllPresenter: TabAllPresenterInterface {
 //    let mobileFavList = TabAll.SetFavData.ViewModel(mobileFavList: displayFavList)
 //    viewController.displayFavouriteTab(viewModel: mobileFavList)
   }
+  
   
   func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response) {
     let displayFavList = response.mobileListModel.map {

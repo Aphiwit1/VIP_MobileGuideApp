@@ -9,10 +9,8 @@
 import UIKit
 
 protocol DetailPresenterInterface {
-  func presentSomething(response: Detail.Something.Response)
   func presentDetail(response: Detail.ShowDetail.Response)
   func presentImageData(response: Detail.GetImage.Response)
-  
 }
 
 class DetailPresenter: DetailPresenterInterface {
@@ -21,12 +19,7 @@ class DetailPresenter: DetailPresenterInterface {
   
   // MARK: - Presentation logic
   
-  func presentSomething(response: Detail.Something.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-    
-    let viewModel = Detail.Something.ViewModel()
-    viewController.displaySomething(viewModel: viewModel)
-  }
+
   
   
   func presentImageData(response: Detail.GetImage.Response) {
@@ -48,8 +41,8 @@ class DetailPresenter: DetailPresenterInterface {
  
     let id = response.displayMobile.mobileID
     let name = response.displayMobile.mobilename
-    let price = "\(String(response.displayMobile.mobilePrice))"
-    let rating = "\(String(response.displayMobile.mobileRating))"
+    let price = "(String(response.displayMobile.mobilePrice))"
+    let rating = "Rating: \(String(response.displayMobile.mobileRating))"
     let description = response.displayMobile.mobileDescription
     let mobileImage  = response.displayMobile.mobileImage
     

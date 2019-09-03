@@ -84,11 +84,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     }
     if editingStyle == .delete {
       guard let id = cell.displayMobile?.mobileID else { return  }
-//      interactor.
       didTapFavorite(with: id, isSelected: false)
-      let request = TabAll.ShowFavouritesTab.Request()
-      interactor.getFavouriteMobiles(request: request)
-
       
     }
   }
@@ -147,8 +143,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   }
 }
 
-
-
 extension TabAllViewController: TabAllCellDelegate {
   func didTapFavorite(with mobileId: Int, isSelected: Bool) {
     print("mobileId: \(mobileId), isSelected: \(isSelected)")
@@ -163,4 +157,7 @@ extension TabAllViewController: TabAllCellDelegate {
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
+  
+  
 }
+
