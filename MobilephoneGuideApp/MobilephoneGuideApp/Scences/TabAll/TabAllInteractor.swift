@@ -13,9 +13,12 @@ protocol TabAllInteractorInterface {
   func setFavourite(request: TabAll.SetFavData.Request)
   func showAllTab(request: TabAll.SetFavData.Request)
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request)
+  func getAllMobiles(resquest: TabAll.ShowAllTab.Request)
 }
 
 class TabAllInteractor: TabAllInteractorInterface {
+ 
+  
   
   var dataArray: [MobileList] = []
 //  var computeddataArray: [MobileList] = []
@@ -52,6 +55,14 @@ class TabAllInteractor: TabAllInteractorInterface {
     let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
     presenter.presentFavouriteTab(response: response)
   }
+  
+  func getAllMobiles(resquest: TabAll.ShowAllTab.Request) {
+      let response = TabAll.ShowAllTab.Response(mobileListModel: dataArray)
+      presenter.presentAllTab(response: response)
+  }
+  
+  
+
   
 }
 

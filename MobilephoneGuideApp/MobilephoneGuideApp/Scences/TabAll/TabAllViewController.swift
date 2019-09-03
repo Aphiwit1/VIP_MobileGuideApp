@@ -11,10 +11,12 @@ import UIKit
 protocol TabAllViewControllerInterface: class {
   func displayResultData(viewModel: TabAll.FeedDataTable.ViewModel)
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel)
-  
+  func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel)
 }
 
 class TabAllViewController: UIViewController, TabAllViewControllerInterface, UITableViewDataSource, UITableViewDelegate {
+ 
+  
 
   
   
@@ -99,6 +101,11 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     let request = TabAll.ShowFavouritesTab.Request()
     interactor.getFavouriteMobiles(request: request)
   }
+  
+  @IBAction func allButton(sender: UIButton){
+    let request = TabAll.ShowAllTab.Request()
+    interactor.getAllMobiles(resquest: request)
+  }
 }
 
 extension TabAllViewController: TabAllCellDelegate {
@@ -111,6 +118,13 @@ extension TabAllViewController: TabAllCellDelegate {
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
      mobileList = viewModel.mobileFavList
   }
+  
+  
+  func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
+     mobileList = viewModel.mobileFavList
+  }
+  
+  
   
   
 }

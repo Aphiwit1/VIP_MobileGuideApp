@@ -89,5 +89,19 @@ struct TabAll {
       var mobileFavList: [ DisplayMobile ]
     }
   }
+  
+  struct ShowAllTab {
+    struct Request {}
+    
+    struct Response {
+      var mobileListModel: [MobileList]
+    }
+    
+    struct ViewModel {
+      var mobileFavList: [ DisplayMobile ]
+    }
+  }
+  
+  
 }
 
