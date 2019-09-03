@@ -28,7 +28,17 @@ class DetailPresenter: DetailPresenterInterface {
   
   
   func presentImageData(response: Detail.GetImage.Response) {
-    let viewModel = Detail.GetImage.ViewModel(imageURLs: response.imageURLs)
+    
+    var images : [Detail.GetImage.ViewModel.MobileImage] = []
+    for image in response.imageURLs {
+      let url = image.url
+      
+      let newImage = Detail.GetImage.ViewModel.MobileImage(url: url)
+      images.append(newImage)
+      print(image)
+    }
+    
+    let viewModel = Detail.GetImage.ViewModel(mobileImages: images)
      viewController.displayImage(viewModel: viewModel)
   }
   

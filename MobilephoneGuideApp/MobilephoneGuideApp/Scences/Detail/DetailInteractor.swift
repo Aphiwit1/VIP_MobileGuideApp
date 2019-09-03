@@ -13,30 +13,28 @@ protocol DetailInteractorInterface {
   func setUpUI(request: Detail.Something.Request)
   var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
   func doFeedImageURLs(request: Detail.GetImage.Request)
+
 }
 
 class DetailInteractor: DetailInteractorInterface {
- 
+
   var mobileDetail: TabAll.FeedDataTable.ViewModel.DisplayMobile?
-  
   var presenter: DetailPresenterInterface!
   var worker: DetailWorker?
-  var model: Entity?
 
-
-  
   func setUpUI(request: Detail.Something.Request) {
 //      let response = Detail.Something.Response()
       
   }
   
   func doFeedImageURLs(request: Detail.GetImage.Request) {
-    worker?.feedMobileImageUrls(imageID: request.imageID, completion: { (imageResult) in
+    worker?.feedMobileImageUrls(imageID: mobileDetail?.mobileID ?? 1, completion: { (imageResult) in
          let response = Detail.GetImage.Response(imageURLs: imageResult)
-//
+      self.presenter.presentImageData(response: response)
     })
   }
   
+ 
   
   
 }

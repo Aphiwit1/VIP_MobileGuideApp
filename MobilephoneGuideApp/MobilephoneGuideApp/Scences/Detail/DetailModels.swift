@@ -30,7 +30,10 @@ struct Detail {
         }
     
     struct ViewModel {
-      let imageURLs: [MobileListImage]
+      struct MobileImage {
+        var url : String
+      }
+      var mobileImages : [MobileImage]
   }
     
   }

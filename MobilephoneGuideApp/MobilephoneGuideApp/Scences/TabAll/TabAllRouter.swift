@@ -58,13 +58,17 @@ class TabAllRouter: TabAllRouterInput {
   
   
   func navigateToDetailPage(mobile: TabAll.FeedDataTable.ViewModel.DisplayMobile) {
-    
+  
   
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
       guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailPage") as? DetailViewController else {
         return assertionFailure("Not found DetailPageStorybaord")
       }
             destinationVC.interactor.mobileDetail = mobile
+    
+            let request = Detail.GetImage.Request(imageID: mobile.mobileID)
+            destinationVC.interactor.doFeedImageURLs(request: request)
+        print(mobile)
       viewController.navigationController?.pushViewController(destinationVC, animated: true)
       
     }

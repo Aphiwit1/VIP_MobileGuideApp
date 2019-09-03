@@ -11,21 +11,27 @@ import UIKit
 protocol DetailViewControllerInterface: class {
   func displaySomething(viewModel: Detail.Something.ViewModel)
   func displayImage(viewModel: Detail.GetImage.ViewModel)
+  
+//  var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
+
 }
 
 class DetailViewController: UIViewController, DetailViewControllerInterface,UICollectionViewDataSource, UICollectionViewDelegate {
   
+//  var mobileDetail: TabAll.FeedDataTable.ViewModel.DisplayMobile?
   
-
+ 
   var interactor: DetailInteractorInterface!
   var router: DetailRouter!
   
-  @IBOutlet weak var DetailPrice: UILabel!
-  @IBOutlet weak var DetailRating: UILabel!
-  @IBOutlet weak var DetailDescription: UILabel!
-  @IBOutlet weak var CollectionView: UICollectionView!
+  @IBOutlet weak var detailPrice: UILabel!
+  @IBOutlet weak var detailRating: UILabel!
+  @IBOutlet weak var detailDescription: UILabel!
+  @IBOutlet weak var collectionView: UICollectionView!
 
   // MARK: - Object lifecycle
+  
+  var images : [Detail.GetImage.ViewModel.MobileImage] = []
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -54,23 +60,19 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   override func viewDidLoad() {
     super.viewDidLoad()
 //    doSomethingOnLoad()
+    self.collectionView.dataSource = self
+  }
+  
+  func doLoadImage() {
+//    let request = Detail.GetImage.Request(imageID: mobileDetail?.mobileID ?? 1)
+//    interactor?.doFeedImageURLs(request: request)
   }
 
-  // MARK: - Event handling
-
-//  func doSomethingOnLoad() {
-//    // NOTE: Ask the Interactor to do some work
-//
-//    let request = Detail.Something.Request()
-//    interactor.doSomething(request: request)
-//  }
-
-  // MARK: - Display logic
 
   func displaySomething(viewModel: Detail.Something.ViewModel) {
     // NOTE: Display the result from the Presenter
-
-    // nameTextField.text = viewModel.name
+      
+    
   }
 
   // MARK: - Router
@@ -86,18 +88,22 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 0
+       return images.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colllectionCell", for: indexPath) as? DetailCollectionViewCell
-    
+    let a = images[indexPath.row]
+    cell?.imageCollectionView.loadImage(url: a.url )
+    print("---->", cell?.imageCollectionView.loadImage(url: a.url ))
     return cell!
   }
   
   
   func displayImage(viewModel: Detail.GetImage.ViewModel) {
-     
+    images = viewModel.mobileImages
+    print(images)
+     self.collectionView.reloadData()
   }
   
 }

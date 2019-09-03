@@ -523,7 +523,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionView" id="gzV-vg-daN" customClass="CardDetailCollectionViewCell" customModule="MobilephoneGuideApp" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="colllectionCell" reuseIdentifier="colllectionCell" id="gzV-vg-daN" customClass="DetailCollectionViewCell" customModule="MobilephoneGuideApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="-0.5" width="381" height="240"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -537,10 +537,14 @@
                                                             </subviews>
                                                         </view>
                                                         <connections>
-                                                            <outlet property="mMobileCollectionView" destination="U18-02-Mnp" id="QqB-P0-XQH"/>
+                                                            <outlet property="imageCollectionView" destination="U18-02-Mnp" id="Oth-YB-HZB"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="PM7-zg-p1w" id="nTr-uy-TOM"/>
+                                                    <outlet property="delegate" destination="PM7-zg-p1w" id="dER-NI-TqU"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -621,10 +625,10 @@
                         <viewLayoutGuide key="safeArea" id="5pk-WW-C1s"/>
                     </view>
                     <connections>
-                        <outlet property="CollectionView" destination="eIO-zd-PAw" id="S6m-Nn-Sbv"/>
-                        <outlet property="DetailDescription" destination="kuy-IH-pH9" id="0n9-bN-ZrK"/>
-                        <outlet property="DetailPrice" destination="eEK-Wa-fHf" id="OUO-ox-wce"/>
-                        <outlet property="DetailRating" destination="6ID-gN-Ft1" id="hCg-rn-yxB"/>
+                        <outlet property="collectionView" destination="eIO-zd-PAw" id="S6m-Nn-Sbv"/>
+                        <outlet property="detailDescription" destination="kuy-IH-pH9" id="0n9-bN-ZrK"/>
+                        <outlet property="detailPrice" destination="eEK-Wa-fHf" id="OUO-ox-wce"/>
+                        <outlet property="detailRating" destination="6ID-gN-Ft1" id="hCg-rn-yxB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmQ-gt-Lm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
