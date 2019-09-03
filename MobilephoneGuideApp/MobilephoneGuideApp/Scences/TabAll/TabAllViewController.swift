@@ -15,13 +15,10 @@ protocol TabAllViewControllerInterface: class {
 }
 
 class TabAllViewController: UIViewController, TabAllViewControllerInterface, UITableViewDataSource, UITableViewDelegate {
- 
-  
 
-  
-  
   @IBOutlet weak var mainTableView: UITableView!
-  @IBOutlet weak var FavouriteButton: UIButton!
+  @IBOutlet weak var favouriteTabButton: UIButton!
+  @IBOutlet weak var allTabButton: UIButton!
   
   var interactor: TabAllInteractorInterface!
   var router: TabAllRouter!
@@ -30,11 +27,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
       mainTableView.reloadData()
     }
   }
-//  var mobileFavList: [TabAll.DisplayMobile] = []
-  
-  
-  // MARK: - Object lifecycle
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
     configure(viewController: self)
@@ -62,6 +55,8 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   override func viewDidLoad() {
     super.viewDidLoad()
     loadTable()
+    favouriteTabButton.setTitleColor(.gray, for: .normal)
+    allTabButton.setTitleColor(.blue, for: .normal)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +74,16 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     cell?.delegate = self
     return cell!
   }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath) as? TabAllCell
+    if editingStyle == .delete {
+      
+      }
+    }
   
   func displayLoadTableView() {
     mainTableView.reloadData()
@@ -100,11 +105,15 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   @IBAction func favButton(sender: UIButton){
     let request = TabAll.ShowFavouritesTab.Request()
     interactor.getFavouriteMobiles(request: request)
+    allTabButton.setTitleColor(.gray, for: .normal)
+    favouriteTabButton.setTitleColor(.blue, for: .normal)
   }
   
   @IBAction func allButton(sender: UIButton){
     let request = TabAll.ShowAllTab.Request()
     interactor.getAllMobiles(resquest: request)
+    favouriteTabButton.setTitleColor(.gray, for: .normal)
+    allTabButton.setTitleColor(.blue, for: .normal)
   }
 }
 

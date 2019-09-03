@@ -362,6 +362,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="AllTabButton" destination="H7K-Mu-Rhl" id="edx-iE-Jdh"/>
+                        <outlet property="FavouriteTabButton" destination="mGI-VK-kaM" id="iLX-xL-ZA1"/>
                         <outlet property="mainTableView" destination="V72-ZZ-ir6" id="2di-jJ-ckk"/>
                     </connections>
                 </viewController>

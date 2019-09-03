@@ -60,7 +60,7 @@ struct TabAll {
     }
   }
 
-  struct SetFavData {
+  class SetFavData {
     /// Data struct sent to Interactor
     struct Request {
       let mobileID: Int
@@ -78,7 +78,7 @@ struct TabAll {
     }
   }
   
-  struct ShowFavouritesTab {
+  class ShowFavouritesTab {
     struct Request {}
     
     struct Response {
@@ -90,7 +90,7 @@ struct TabAll {
     }
   }
   
-  struct ShowAllTab {
+  class ShowAllTab {
     struct Request {}
     
     struct Response {
