@@ -77,11 +77,6 @@ class TabAllInteractor: TabAllInteractorInterface {
         let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
         presenter.presentData(response: response)
      
-        
-//        let favourites = dataArray.filter { $0.favSelected ?? false  }
-//        let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
-//        presenter.presentFavouriteTab(response: response)
-      
       
     }
   

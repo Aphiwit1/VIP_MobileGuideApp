@@ -70,10 +70,17 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colllectionCell", for: indexPath) as? DetailCollectionViewCell
-    let a = images[indexPath.row]
-    cell?.imageCollectionView.loadImage(url: a.url )
-    return cell!
+    
+    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colllectionCell", for: indexPath) as? DetailCollectionViewCell {
+      let a = images[indexPath.row]
+      cell.imageCollectionView.loadImage(url: a.url )
+      return cell
+    }else {
+        let alert = UIAlertController(title: "Error!", message: "Cannot load image please check the internet", preferredStyle: .alert)
+      present(alert, animated: true)
+    }
+     return UICollectionViewCell()
+  
   }
   
   
@@ -88,6 +95,7 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
        detailPrice.text = viewModel.displayMobile.mobilePrice
        detailRating.text = viewModel.displayMobile.mobileRating
        detailDescription.text = viewModel.displayMobile.mobileDescription
+       
   }
   
 }

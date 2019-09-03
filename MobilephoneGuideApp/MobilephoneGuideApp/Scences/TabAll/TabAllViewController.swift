@@ -151,7 +151,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
 
 extension TabAllViewController: TabAllCellDelegate {
   func didTapFavorite(with mobileId: Int, isSelected: Bool) {
-    print("mobileId: \(mobileId), isSelected: \(isSelected)")
     let request = TabAll.SetFavData.Request(mobileID: mobileId, isFav: isSelected)
     interactor.setFavourite(request: request)
   }

@@ -29,8 +29,10 @@ class DetailInteractor: DetailInteractorInterface {
   }
   
   func doFeedImageURLs(request: Detail.GetImage.Request) {
+    
     worker?.feedMobileImageUrls(imageID: mobileDetail?.mobileID ?? 1, completion: { (imageResult) in
-         let response = Detail.GetImage.Response(imageURLs: imageResult)
+      
+      let response = Detail.GetImage.Response(imageURLs: imageResult)
       self.presenter.presentImageData(response: response)
     })
   }

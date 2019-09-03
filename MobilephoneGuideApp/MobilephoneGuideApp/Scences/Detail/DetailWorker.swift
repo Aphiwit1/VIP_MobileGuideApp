@@ -43,13 +43,11 @@ class DetailWorker {
           let result = try decoder.decode([MobileListImage].self, from: response.data!)
           completion(result)
         } catch let error{
-          print("error case success")
-          print(error)
+          print(error.localizedDescription)
         }
         break
       case let .failure(error):
-        print("error case failure")
-        print(error)
+          print(error.localizedDescription)
         break
       }
     }

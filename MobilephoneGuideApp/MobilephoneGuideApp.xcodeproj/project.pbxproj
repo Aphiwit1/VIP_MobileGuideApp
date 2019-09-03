@@ -38,10 +38,7 @@
 		CBFC2078231515B20039000A /* TabAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC2077231515B20039000A /* TabAllTableViewCell.swift */; };
 		CBFC207B23151D2A0039000A /* MobilephoneListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */; };
 		CBFC207D23152C740039000A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207C23152C740039000A /* Extension.swift */; };
-		CBFC207F231530FB0039000A /* starDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = CBFC207E231530FB0039000A /* starDefault.png */; };
-		CBFC20812315310A0039000A /* starSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = CBFC20802315310A0039000A /* starSelected.png */; };
 		CBFC20832315F47D0039000A /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC20822315F47D0039000A /* CardDetailViewController.swift */; };
-		CBFC20852315F5700039000A /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CBFC20842315F5700039000A /* back-arrow.png */; };
 		CBFC2087231619D00039000A /* DetailMobileListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC2086231619D00039000A /* DetailMobileListModel.swift */; };
 		CBFC208B231630F00039000A /* CardDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC208A231630F00039000A /* CardDetailCollectionViewCell.swift */; };
 		CBFC208F2317DCD90039000A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC208E2317DCD90039000A /* APIManager.swift */; };
@@ -106,10 +103,7 @@
 		CBFC2077231515B20039000A /* TabAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllTableViewCell.swift; sourceTree = "<group>"; };
 		CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilephoneListModel.swift; sourceTree = "<group>"; };
 		CBFC207C23152C740039000A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		CBFC207E231530FB0039000A /* starDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDefault.png; sourceTree = "<group>"; };
-		CBFC20802315310A0039000A /* starSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starSelected.png; sourceTree = "<group>"; };
 		CBFC20822315F47D0039000A /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
-		CBFC20842315F5700039000A /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
 		CBFC2086231619D00039000A /* DetailMobileListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMobileListModel.swift; sourceTree = "<group>"; };
 		CBFC208A231630F00039000A /* CardDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBFC208E2317DCD90039000A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -262,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				CB2D5B8C231CB09B00C7EF04 /* Scences */,
-				CBFC20792315196A0039000A /* images */,
 				CBFC207623150B590039000A /* Model */,
 				CBFC207523150A860039000A /* View */,
 				CBFC207423150A620039000A /* Controller */,
@@ -320,16 +313,6 @@
 				CBFC2086231619D00039000A /* DetailMobileListModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CBFC20792315196A0039000A /* images */ = {
-			isa = PBXGroup;
-			children = (
-				CBFC20842315F5700039000A /* back-arrow.png */,
-				CBFC20802315310A0039000A /* starSelected.png */,
-				CBFC207E231530FB0039000A /* starDefault.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,11 +423,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBFC20852315F5700039000A /* back-arrow.png in Resources */,
 				CBF298FF231509570046FDE0 /* LaunchScreen.storyboard in Resources */,
-				CBFC20812315310A0039000A /* starSelected.png in Resources */,
 				CBF298FC231509570046FDE0 /* Assets.xcassets in Resources */,
-				CBFC207F231530FB0039000A /* starDefault.png in Resources */,
 				CBF298F7231509560046FDE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,7 +32,7 @@ class DetailPresenter: DetailPresenterInterface {
     }
     
     let viewModel = Detail.GetImage.ViewModel(mobileImages: images)
-    viewController.displayImage(viewModel: viewModel)
+     viewController.displayImage(viewModel: viewModel)
   }
   
   func presentDetail(response: Detail.ShowDetail.Response) {

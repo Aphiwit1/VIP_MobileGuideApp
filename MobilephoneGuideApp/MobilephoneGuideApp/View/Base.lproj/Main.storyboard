@@ -67,8 +67,8 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDo-he-BeZ">
                                                                     <rect key="frame" x="255" y="8" width="39" height="24"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <state key="normal" image="starDefault.png"/>
-                                                                    <state key="selected" image="starSelected.png"/>
+                                                                    <state key="normal" image="starNotSelected"/>
+                                                                    <state key="selected" image="starIsSelected"/>
                                                                     <connections>
                                                                         <action selector="chackFavButtonPressedWithSender:" destination="leM-Re-WQ0" eventType="touchUpInside" id="IG4-OO-KSf"/>
                                                                     </connections>
@@ -284,7 +284,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="CH3-TI-f13" secondAttribute="bottom" constant="8" id="BC8-wg-La6"/>
                                                         <constraint firstItem="CH3-TI-f13" firstAttribute="leading" secondItem="EhK-cW-kqn" secondAttribute="leading" constant="8" id="Ez7-Kd-WL1"/>
@@ -701,6 +701,5 @@
         <image name="starDefault.png" width="24" height="24"/>
         <image name="starIsSelected" width="32" height="32"/>
         <image name="starNotSelected" width="24" height="24"/>
-        <image name="starSelected.png" width="24" height="24"/>
     </resources>
 </document>
