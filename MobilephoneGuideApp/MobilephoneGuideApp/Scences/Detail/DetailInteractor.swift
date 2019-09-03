@@ -13,11 +13,13 @@ protocol DetailInteractorInterface {
   func setUpUI(request: Detail.Something.Request)
   var model: Entity? { get }
   var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
+  func doFeedImageURLs(request: Detail.GetImage.Request)
 }
 
 class DetailInteractor: DetailInteractorInterface {
-  var mobileDetail: TabAll.FeedDataTable.ViewModel.DisplayMobile?
+ 
   
+  var mobileDetail: TabAll.FeedDataTable.ViewModel.DisplayMobile?
   
   var presenter: DetailPresenterInterface!
   var worker: DetailWorker?
@@ -31,7 +33,6 @@ class DetailInteractor: DetailInteractorInterface {
         // If the result was successful, we keep the data so that we can deliver it to another view controller through the router.
         self?.model = data
       }
-
       // NOTE: Pass the result to the Presenter. This is done by creating a response model with the result from the worker. The response could contain a type like UserResult enum (as declared in the SCB Easy project) with the result as an associated value.
       let response = Detail.Something.Response()
       self?.presenter.presentSomething(response: response)
@@ -39,6 +40,17 @@ class DetailInteractor: DetailInteractorInterface {
   }
   
   func setUpUI(request: Detail.Something.Request) {
+//      let response = Detail.Something.Response()
       
   }
+  
+  func doFeedImageURLs(request: Detail.GetImage.Request) {
+    worker?.feedMobileImageUrls(imageID: request.imageID, completion: { (imageResult) in
+         let response = Detail.GetImage.Response(imageURLs: imageResult)
+//         
+    })
+  }
+  
+  
+  
 }

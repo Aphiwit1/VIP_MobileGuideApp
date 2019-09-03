@@ -26,6 +26,7 @@
 		CB2D5BF4231D58C500C7EF04 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BEC231D58C500C7EF04 /* DetailViewController.swift */; };
 		CB2D5BF5231D58C500C7EF04 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BED231D58C500C7EF04 /* DetailInteractor.swift */; };
 		CB2D5BF6231D58C500C7EF04 /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BEE231D58C500C7EF04 /* DetailEntity.swift */; };
+		CB2D5BF9231DE44500C7EF04 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BF8231DE44500C7EF04 /* DetailCollectionViewCell.swift */; };
 		CBF298F2231509560046FDE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF298F1231509560046FDE0 /* AppDelegate.swift */; };
 		CBF298F4231509560046FDE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF298F3231509560046FDE0 /* ViewController.swift */; };
 		CBF298F7231509560046FDE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF298F5231509560046FDE0 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		CB2D5BEC231D58C500C7EF04 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CB2D5BED231D58C500C7EF04 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		CB2D5BEE231D58C500C7EF04 /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
+		CB2D5BF8231DE44500C7EF04 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBF298EE231509560046FDE0 /* MobilephoneGuideApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilephoneGuideApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF298F1231509560046FDE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF298F3231509560046FDE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		CB2D5BE6231D58AB00C7EF04 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CB2D5BF7231DE42A00C7EF04 /* CollectionCell */,
 				CB2D5BE7231D58C500C7EF04 /* DetailStore.swift */,
 				CB2D5BE8231D58C500C7EF04 /* DetailPresenter.swift */,
 				CB2D5BE9231D58C500C7EF04 /* DetailWorker.swift */,
@@ -223,6 +226,14 @@
 				CB2D5BEE231D58C500C7EF04 /* DetailEntity.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		CB2D5BF7231DE42A00C7EF04 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB2D5BF8231DE44500C7EF04 /* DetailCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		CBF298E5231509560046FDE0 = {
@@ -552,6 +563,7 @@
 				CB2D5BA3231CD68600C7EF04 /* TabAllCell.swift in Sources */,
 				CBF298F4231509560046FDE0 /* ViewController.swift in Sources */,
 				CB2D5B9B231CBB9F00C7EF04 /* TabAllModels.swift in Sources */,
+				CB2D5BF9231DE44500C7EF04 /* DetailCollectionViewCell.swift in Sources */,
 				CB2D5BF0231D58C500C7EF04 /* DetailPresenter.swift in Sources */,
 				CB2D5B9C231CBB9F00C7EF04 /* TabAllViewController.swift in Sources */,
 				CB2D5B99231CBB9F00C7EF04 /* TabAllWorker.swift in Sources */,

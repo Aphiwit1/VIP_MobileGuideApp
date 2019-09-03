@@ -12,9 +12,15 @@ protocol DetailViewControllerInterface: class {
   func displaySomething(viewModel: Detail.Something.ViewModel)
 }
 
-class DetailViewController: UIViewController, DetailViewControllerInterface {
+class DetailViewController: UIViewController, DetailViewControllerInterface,UICollectionViewDataSource, UICollectionViewDelegate {
+
   var interactor: DetailInteractorInterface!
   var router: DetailRouter!
+  
+  @IBOutlet weak var DetailPrice: UILabel!
+  @IBOutlet weak var DetailRating: UILabel!
+  @IBOutlet weak var DetailDescription: UILabel!
+  @IBOutlet weak var CollectionView: UICollectionView!
 
   // MARK: - Object lifecycle
 
@@ -74,4 +80,14 @@ class DetailViewController: UIViewController, DetailViewControllerInterface {
     print("unwind...")
     router.passDataToNextScene(segue: segue)
   }
+  
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "colllectionCell", for: indexPath) as? DetailCollectionViewCell
+  }
+  
 }

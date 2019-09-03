@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias DetailMobileListModel = [PurpleDetailMobileListModel]
+typealias DetailMobileListModel = [MobileListImage]
 
-struct PurpleDetailMobileListModel: Codable {
+struct MobileListImage: Codable {
     let url: String
     let id, mobileID: Int
 
@@ -22,9 +22,9 @@ struct PurpleDetailMobileListModel: Codable {
 
 // MARK: Convenience initializers
 
-extension PurpleDetailMobileListModel {
+extension MobileListImage {
     init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(PurpleDetailMobileListModel.self, from: data) else { return nil }
+        guard let me = try? JSONDecoder().decode(MobileListImage.self, from: data) else { return nil }
         self = me
     }
 

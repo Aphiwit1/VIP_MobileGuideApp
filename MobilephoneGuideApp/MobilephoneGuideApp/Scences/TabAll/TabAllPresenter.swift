@@ -36,11 +36,13 @@ class TabAllPresenter: TabAllPresenterInterface {
         
         let displayMobileList = response.mobileListModel.map {
             TabAll.FeedDataTable.ViewModel.DisplayMobile(
-                mobilename: $0.name,
-                mobileRating: "Rating: $\(String($0.rating))",
-                mobilePrice: "Price: $\(String($0.price))",
-                mobileDescription: $0.description,
-                mobileImage: $0.thumbImageURL
+              
+              mobileID: $0.id,
+              mobilename: $0.name,
+              mobileRating: "Rating: $\(String($0.rating))",
+              mobilePrice: "Price: $\(String($0.price))",
+              mobileDescription: $0.description,
+              mobileImage: $0.thumbImageURL
             )
         }
         let mobileViewModel = TabAll.FeedDataTable.ViewModel(

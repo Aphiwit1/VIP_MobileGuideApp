@@ -18,7 +18,7 @@ class CardDetailViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var mCollectionView: UICollectionView!
     
     
-    var mDataArray: [PurpleDetailMobileListModel] = []
+    var mDataArray: [MobileListImage] = []
     var vc2imageURLS : [String] = []
     var feedInfo = FeedData() 
     

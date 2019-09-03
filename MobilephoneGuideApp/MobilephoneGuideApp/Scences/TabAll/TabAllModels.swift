@@ -35,6 +35,7 @@ struct TabAll {
             var displayMobileList : [ DisplayMobile ]
         
             struct DisplayMobile {
+                let mobileID: Int
                 let mobilename : String
                 let mobileRating : String
                 let mobilePrice  : String

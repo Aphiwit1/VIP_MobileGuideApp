@@ -21,11 +21,18 @@ struct Detail {
   
   struct GetImage {
     /// Data struct sent to Interactor
-    struct Request {}
-    /// Data struct sent to Presenter
-    struct Response {}
-    /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct Request {
+         let imageID: Int
+    }
+    
+    struct Response {
+          let imageURLs: [MobileListImage]
+        }
+    
+    struct ViewModel {
+      let imageURLs: [MobileListImage]
+  }
+    
   }
   
 }

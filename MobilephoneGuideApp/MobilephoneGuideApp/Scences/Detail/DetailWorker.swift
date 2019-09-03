@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 protocol DetailStoreProtocol {
   func getData(_ completion: @escaping (Result<Entity>) -> Void)
@@ -27,6 +29,29 @@ class DetailWorker {
     store.getData {
       // The worker may perform some small business logic before returning the result to the Interactor
       completion($0)
+    }
+  }
+  
+  func feedMobileImageUrls(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
+    let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
+    AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
+      print(response)
+      switch response.result {
+      case .success(_):
+        do {
+          let decoder = JSONDecoder()
+          let result = try decoder.decode([MobileListImage].self, from: response.data!)
+          completion(result)
+        } catch let error{
+          print("error case success")
+          print(error)
+        }
+        break
+      case let .failure(error):
+        print("error case failure")
+        print(error)
+        break
+      }
     }
   }
 }

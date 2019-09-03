@@ -620,6 +620,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5pk-WW-C1s"/>
                     </view>
+                    <connections>
+                        <outlet property="CollectionView" destination="eIO-zd-PAw" id="S6m-Nn-Sbv"/>
+                        <outlet property="DetailDescription" destination="kuy-IH-pH9" id="0n9-bN-ZrK"/>
+                        <outlet property="DetailPrice" destination="eEK-Wa-fHf" id="OUO-ox-wce"/>
+                        <outlet property="DetailRating" destination="6ID-gN-Ft1" id="hCg-rn-yxB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmQ-gt-Lm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
