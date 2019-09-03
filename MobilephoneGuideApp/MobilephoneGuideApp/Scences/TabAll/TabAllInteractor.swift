@@ -20,7 +20,6 @@ protocol TabAllInteractorInterface {
 class TabAllInteractor: TabAllInteractorInterface {
   
   var dataArray: [MobileList] = []
-//  var computeddataArray: [MobileList] = []
   var presenter: TabAllPresenterInterface!
   var worker: TabAllWorker?
   
@@ -30,7 +29,7 @@ class TabAllInteractor: TabAllInteractorInterface {
       let response = TabAll.FeedDataTable.Response(mobileListModel: result)
       self.presenter.presentData(response: response)
       self.dataArray = result
-//      self.computeddataArray = result
+
     })
   }
   
@@ -74,16 +73,15 @@ class TabAllInteractor: TabAllInteractorInterface {
         first.rating > second.rating
       }
       
-      
-      if resquest.tagSoprt == 0 {
+   
         let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
         presenter.presentData(response: response)
-      }else {
+     
         
-        let favourites = dataArray.filter { $0.favSelected ?? false  }
-        let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
-        presenter.presentFavouriteTab(response: response)
-      }
+//        let favourites = dataArray.filter { $0.favSelected ?? false  }
+//        let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
+//        presenter.presentFavouriteTab(response: response)
+      
       
     }
   

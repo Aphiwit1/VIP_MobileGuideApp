@@ -8,16 +8,6 @@
 
 import Foundation
 
-/*
-
- The TabAllStore class implements the TabAllStoreProtocol.
-
- The source for the data could be a database, cache, or a web service.
-
- You may remove these comments from the file.
-
- */
-
 class TabAllStore: TabAllStoreProtocol {
   func getData(_ completion: @escaping (Result<Entity>) -> Void) {
     // Simulates an asynchronous background thread that calls back on the main thread after 2 seconds

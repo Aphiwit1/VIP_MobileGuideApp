@@ -19,14 +19,13 @@ protocol TabAllPresenterInterface {
 class TabAllPresenter: TabAllPresenterInterface {
   
     weak var viewController: TabAllViewControllerInterface!
-
     
     func presentData(response: TabAll.FeedDataTable.Response) {
         let displayMobileList = response.mobileListModel.map {
             TabAll.DisplayMobile(
               mobileID: $0.id,
               mobilename: $0.name,
-              mobileRating: "Rating: $\(String($0.rating))",
+              mobileRating: "Rating: \(String($0.rating))",
               mobilePrice: "Price: $\(String($0.price))",
               mobileDescription: $0.description,
               mobileImage: $0.thumbImageURL,
@@ -40,19 +39,6 @@ class TabAllPresenter: TabAllPresenterInterface {
     }
   
   func presentDataFavourite(response: TabAll.SetFavData.Response) {
-    let displayFavList = response.mobileListModel.map {
-      TabAll.DisplayMobile(
-        mobileID: $0.id,
-        mobilename: $0.name,
-        mobileRating: "Rating: $\(String($0.rating))",
-        mobilePrice: "Price: $\(String($0.price))",
-        mobileDescription: $0.description,
-        mobileImage: $0.thumbImageURL,
-        isFav: $0.favSelected ?? false
-      )
-    }
-//    let mobileFavList = TabAll.SetFavData.ViewModel(mobileFavList: displayFavList)
-//    viewController.displayFavouriteTab(viewModel: mobileFavList)
   }
   
   

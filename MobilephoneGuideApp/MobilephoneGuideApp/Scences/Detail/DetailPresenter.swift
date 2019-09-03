@@ -9,6 +9,7 @@
 import UIKit
 
 protocol DetailPresenterInterface {
+
   func presentDetail(response: Detail.ShowDetail.Response)
   func presentImageData(response: Detail.GetImage.Response)
 }
@@ -18,9 +19,6 @@ class DetailPresenter: DetailPresenterInterface {
   weak var viewController: DetailViewControllerInterface!
   
   // MARK: - Presentation logic
-  
-
-  
   
   func presentImageData(response: Detail.GetImage.Response) {
     
@@ -41,19 +39,17 @@ class DetailPresenter: DetailPresenterInterface {
  
     let id = response.displayMobile.mobileID
     let name = response.displayMobile.mobilename
-    let price = "(String(response.displayMobile.mobilePrice))"
-    let rating = "Rating: \(String(response.displayMobile.mobileRating))"
+    let price = "\(String(response.displayMobile.mobilePrice))"
+    let rating = "\(String(response.displayMobile.mobileRating))"
     let description = response.displayMobile.mobileDescription
     let mobileImage  = response.displayMobile.mobileImage
     
     let displayDatail = Detail.ShowDetail.ViewModel.DisplayMobile(mobileID: id , mobilename: name, mobileRating: rating, mobilePrice: price, mobileDescription: description, mobileImage: mobileImage)
-//    detailMobileList.append(displayDatail)
     
     let viewModel = Detail.ShowDetail.ViewModel(displayMobile: displayDatail)
      viewController.displayDetailText(viewModel: viewModel)
     
   }
-  
   
   
 }

@@ -26,7 +26,5 @@ enum Result<T> {
   case failure(Error)
 }
 
-//
-// The entity or business object
-//
+
 struct Entity {}

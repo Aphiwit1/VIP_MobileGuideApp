@@ -69,9 +69,15 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tabAllCell") as? TabAllCell
+    
+    if favouriteTabButton.isSelected {
+       cell?.mobileFavBtn.isHidden = true
+    }
+    
     let item = mobileList[indexPath.row]
     cell?.configureCell(with: item)
     cell?.delegate = self
+    
     return cell!
   }
   
@@ -151,12 +157,15 @@ extension TabAllViewController: TabAllCellDelegate {
   }
   
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
+    
     mobileList = viewModel.mobileFavList
   }
   
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
+  
+  
   
   
 }
