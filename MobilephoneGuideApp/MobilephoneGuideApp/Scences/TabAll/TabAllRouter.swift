@@ -66,9 +66,9 @@ class TabAllRouter: TabAllRouterInput {
       }
             destinationVC.interactor.mobileDetail = mobile
     
-            let request = Detail.GetImage.Request(imageID: mobile.mobileID)
-            destinationVC.interactor.doFeedImageURLs(request: request)
-        print(mobile)
+//            let request = Detail.GetImage.Request(imageID: mobile.mobileID)
+//            destinationVC.interactor.doFeedImageURLs(request: request)
+//        print(mobile)
       viewController.navigationController?.pushViewController(destinationVC, animated: true)
       
     }

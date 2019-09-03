@@ -11,12 +11,15 @@ import UIKit
 protocol DetailViewControllerInterface: class {
   func displaySomething(viewModel: Detail.Something.ViewModel)
   func displayImage(viewModel: Detail.GetImage.ViewModel)
+  func displayDetailText(viewModel: Detail.ShowDetail.ViewModel)
   
 //  var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
 
 }
 
 class DetailViewController: UIViewController, DetailViewControllerInterface,UICollectionViewDataSource, UICollectionViewDelegate {
+  
+  
   
 //  var mobileDetail: TabAll.FeedDataTable.ViewModel.DisplayMobile?
   
@@ -60,7 +63,12 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   override func viewDidLoad() {
     super.viewDidLoad()
 //    doSomethingOnLoad()
+    let request = Detail.ShowDetail.Request()
+    interactor.setUpUI(request: request)
     self.collectionView.dataSource = self
+    
+    let requestImage = Detail.GetImage.Request()
+    interactor.doFeedImageURLs(request: requestImage)
   }
   
   func doLoadImage() {
@@ -104,6 +112,13 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
     images = viewModel.mobileImages
     print(images)
      self.collectionView.reloadData()
+  }
+  
+  
+  func displayDetailText(viewModel: Detail.ShowDetail.ViewModel) {
+       detailPrice.text = viewModel.displayMobile.mobilePrice
+       detailRating.text = viewModel.displayMobile.mobileRating
+       detailDescription.text = viewModel.displayMobile.mobileDescription
   }
   
 }

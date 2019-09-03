@@ -10,9 +10,10 @@ import UIKit
 
 protocol DetailInteractorInterface {
 
-  func setUpUI(request: Detail.Something.Request)
-  var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
+  func setUpUI(request: Detail.ShowDetail.Request)
   func doFeedImageURLs(request: Detail.GetImage.Request)
+  
+  var mobileDetail : TabAll.FeedDataTable.ViewModel.DisplayMobile? {get set}
 
 }
 
@@ -22,9 +23,9 @@ class DetailInteractor: DetailInteractorInterface {
   var presenter: DetailPresenterInterface!
   var worker: DetailWorker?
 
-  func setUpUI(request: Detail.Something.Request) {
-//      let response = Detail.Something.Response()
-      
+  func setUpUI(request: Detail.ShowDetail.Request) {
+    let response = Detail.ShowDetail.Response(displayMobile: mobileDetail!)
+    self.presenter.presentDetail(response: response)
   }
   
   func doFeedImageURLs(request: Detail.GetImage.Request) {

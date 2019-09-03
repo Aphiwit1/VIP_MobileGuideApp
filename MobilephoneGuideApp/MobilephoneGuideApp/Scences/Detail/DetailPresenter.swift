@@ -10,18 +10,19 @@ import UIKit
 
 protocol DetailPresenterInterface {
   func presentSomething(response: Detail.Something.Response)
+  func presentDetail(response: Detail.ShowDetail.Response)
   func presentImageData(response: Detail.GetImage.Response)
 }
 
 class DetailPresenter: DetailPresenterInterface {
   
   weak var viewController: DetailViewControllerInterface!
-
+  
   // MARK: - Presentation logic
-
+  
   func presentSomething(response: Detail.Something.Response) {
     // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-
+    
     let viewModel = Detail.Something.ViewModel()
     viewController.displaySomething(viewModel: viewModel)
   }
@@ -39,7 +40,26 @@ class DetailPresenter: DetailPresenterInterface {
     }
     
     let viewModel = Detail.GetImage.ViewModel(mobileImages: images)
-     viewController.displayImage(viewModel: viewModel)
+    viewController.displayImage(viewModel: viewModel)
   }
+  
+  func presentDetail(response: Detail.ShowDetail.Response) {
+ 
+    let id = response.displayMobile.mobileID
+    let name = response.displayMobile.mobilename
+    let price = "\(String(response.displayMobile.mobilePrice))"
+    let rating = "\(String(response.displayMobile.mobileRating))"
+    let description = response.displayMobile.mobileDescription
+    let mobileImage  = response.displayMobile.mobileImage
+    
+    let displayDatail = Detail.ShowDetail.ViewModel.DisplayMobile(mobileID: id , mobilename: name, mobileRating: rating, mobilePrice: price, mobileDescription: description, mobileImage: mobileImage)
+//    detailMobileList.append(displayDatail)
+    
+    let viewModel = Detail.ShowDetail.ViewModel(displayMobile: displayDatail)
+     viewController.displayDetailText(viewModel: viewModel)
+    
+  }
+  
+  
   
 }

@@ -19,15 +19,35 @@ struct Detail {
     struct ViewModel {}
   }
   
-  struct GetImage {
+  struct ShowDetail {
     /// Data struct sent to Interactor
-    struct Request {
-         let imageID: Int
+    struct Request {}
+    /// Data struct sent to Presenter
+    struct Response {
+       var displayMobile :  TabAll.FeedDataTable.ViewModel.DisplayMobile
     }
     
+    /// Data struct sent to ViewController
+    struct ViewModel {
+      var displayMobile :  DisplayMobile
+      struct DisplayMobile {
+        let mobileID: Int
+        let mobilename : String
+        let mobileRating : String
+        let mobilePrice  : String
+        let mobileDescription  : String
+        let mobileImage: String
+      }
+    }
+  }
+  
+  struct GetImage {
+    /// Data struct sent to Interactor
+    struct Request { }
+    
     struct Response {
-          let imageURLs: [MobileListImage]
-        }
+      let imageURLs: [MobileListImage]
+    }
     
     struct ViewModel {
       struct MobileImage {
