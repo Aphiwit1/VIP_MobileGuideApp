@@ -40,17 +40,19 @@ struct TabAll {
   
   
   struct SortTable {
-    /// Data struct sent to Interactor
+    
     struct Request {
       enum sortTyle {
         case PriceHightToLow
         case PriceLowToHight
         case RatingHightToLow
       }
-    }
-    /// Data struct sent to Presenter
-    struct Response {
+      let sortType:sortTyle
       
+    }
+
+    struct Response {
+       
     }
     /// Data struct sent to ViewController
     struct ViewModel {

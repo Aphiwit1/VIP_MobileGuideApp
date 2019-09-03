@@ -98,8 +98,23 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     mobileList = viewModel.displayMobileList
   }
   
-  @IBAction func sortButton(sender: UIButton){
-    print("Check!")
+  @IBAction func sortTable(sender: UIBarButtonItem){
+    let alert = UIAlertController(title: "Sorting", message: "", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .PriceHightToLow)
+      self.interactor.getSorting(resquest: request)
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .PriceLowToHight)
+      self.interactor.getSorting(resquest: request)
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .RatingHightToLow)
+      self.interactor.getSorting(resquest: request)
+    }))
+    present(alert, animated: true, completion: nil)
   }
   
   @IBAction func favButton(sender: UIButton){
@@ -117,6 +132,8 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   }
 }
 
+
+
 extension TabAllViewController: TabAllCellDelegate {
   func didTapFavorite(with mobileId: Int, isSelected: Bool) {
     print("mobileId: \(mobileId), isSelected: \(isSelected)")
@@ -127,7 +144,6 @@ extension TabAllViewController: TabAllCellDelegate {
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
      mobileList = viewModel.mobileFavList
   }
-  
   
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
      mobileList = viewModel.mobileFavList

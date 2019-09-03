@@ -358,12 +358,16 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dv7-Xe-uBU">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="egb-xh-kMz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="egb-xh-kMz">
+                            <connections>
+                                <action selector="sortTableWithSender:" destination="Mlq-eF-64g" id="RyB-zs-yK6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AllTabButton" destination="H7K-Mu-Rhl" id="edx-iE-Jdh"/>
-                        <outlet property="FavouriteTabButton" destination="mGI-VK-kaM" id="iLX-xL-ZA1"/>
+                        <outlet property="allTabButton" destination="H7K-Mu-Rhl" id="NEE-eN-d6V"/>
+                        <outlet property="favouriteTabButton" destination="mGI-VK-kaM" id="Pew-Ah-xOI"/>
                         <outlet property="mainTableView" destination="V72-ZZ-ir6" id="2di-jJ-ckk"/>
                     </connections>
                 </viewController>

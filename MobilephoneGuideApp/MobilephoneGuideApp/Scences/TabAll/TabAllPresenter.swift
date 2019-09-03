@@ -13,6 +13,7 @@ protocol TabAllPresenterInterface {
   func presentDataFavourite(response: TabAll.SetFavData.Response)
   func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response)
   func presentAllTab(response: TabAll.ShowAllTab.Response)
+
 }
 
 class TabAllPresenter: TabAllPresenterInterface {

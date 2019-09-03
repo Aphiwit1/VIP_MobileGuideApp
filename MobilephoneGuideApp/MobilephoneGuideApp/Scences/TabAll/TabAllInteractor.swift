@@ -14,11 +14,10 @@ protocol TabAllInteractorInterface {
   func showAllTab(request: TabAll.SetFavData.Request)
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request)
   func getAllMobiles(resquest: TabAll.ShowAllTab.Request)
+  func getSorting(resquest: TabAll.SortTable.Request)
 }
 
 class TabAllInteractor: TabAllInteractorInterface {
- 
-  
   
   var dataArray: [MobileList] = []
 //  var computeddataArray: [MobileList] = []
@@ -59,6 +58,33 @@ class TabAllInteractor: TabAllInteractorInterface {
   func getAllMobiles(resquest: TabAll.ShowAllTab.Request) {
       let response = TabAll.ShowAllTab.Response(mobileListModel: dataArray)
       presenter.presentAllTab(response: response)
+  }
+  
+  func getSorting(resquest: TabAll.SortTable.Request) {
+    switch resquest.sortType {
+    case .PriceHightToLow :
+      dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
+        first.price > second.price
+      }
+    case .PriceLowToHight :
+      dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
+        first.price < second.price
+      }
+    case .RatingHightToLow :
+      dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
+        first.rating > second.rating
+      }
+    }
+    
+    if () {
+      let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
+      presenter.presentData(response: response)
+    }else {
+      let favourites = dataArray.filter { $0.favSelected ?? false  }
+      let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
+      presenter.presentFavouriteTab(response: response)
+    }
+
   }
   
   
