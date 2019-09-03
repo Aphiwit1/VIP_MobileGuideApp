@@ -39,7 +39,6 @@ class TabAllInteractor: TabAllInteractorInterface {
       if i.id == request.mobileID {
          i.favSelected = request.isFav
       }
-      
     }
     let response = TabAll.SetFavData.Response(mobileListModel: dataArray)
     self.presenter.presentDataFavourite(response: response)
@@ -75,8 +74,8 @@ class TabAllInteractor: TabAllInteractorInterface {
         first.rating > second.rating
       }
     }
-    
-    if () {
+  
+    if resquest.tagSoprt == 0 {
       let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
       presenter.presentData(response: response)
     }else {
