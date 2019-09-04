@@ -69,7 +69,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tabAllCell") as? TabAllCell
-    
     if favouriteTabButton.isSelected {
        cell?.mobileFavBtn.isHidden = true
     }
@@ -77,7 +76,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     let item = mobileList[indexPath.row]
     cell?.configureCell(with: item)
     cell?.delegate = self
-    
     return cell!
   }
   
@@ -91,7 +89,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     if editingStyle == .delete {
       guard let id = cell.displayMobile?.mobileID else { return  }
       didTapFavorite(with: id, isSelected: false)
-      
     }
   }
   
@@ -118,17 +115,17 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     
     let alert = UIAlertController(title: "Sorting", message: "", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .PriceHightToLow,tagSoprt: sortType)
+      let request = TabAll.SortTable.Request(sortType: .PriceHightToLow,tagSort: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     
-    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .PriceLowToHight, tagSoprt: sortType)
+    alert.addAction(UIAlertAction(title: "Price height to low", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .PriceLowToHight, tagSort: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     
-    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .RatingHightToLow, tagSoprt: sortType)
+    alert.addAction(UIAlertAction(title: "rating hight to low", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .RatingHightToLow, tagSort: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     present(alert, animated: true, completion: nil)

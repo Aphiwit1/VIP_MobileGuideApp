@@ -48,7 +48,6 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
     viewController.interactor = interactor
     viewController.router = router
   }
-
   // MARK: - View lifecycle
 
   override func viewDidLoad() {
@@ -62,8 +61,6 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
     interactor.doFeedImageURLs(request: requestImage)
   }
   
- 
-
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return images.count
@@ -80,22 +77,17 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
       present(alert, animated: true)
     }
      return UICollectionViewCell()
-  
   }
-  
   
   func displayImage(viewModel: Detail.GetImage.ViewModel) {
     images = viewModel.mobileImages
     print(images)
      self.collectionView.reloadData()
   }
-  
-  
   func displayDetailText(viewModel: Detail.ShowDetail.ViewModel) {
        detailPrice.text = viewModel.displayMobile.mobilePrice
        detailRating.text = viewModel.displayMobile.mobileRating
        detailDescription.text = viewModel.displayMobile.mobileDescription
-       
   }
   
 }

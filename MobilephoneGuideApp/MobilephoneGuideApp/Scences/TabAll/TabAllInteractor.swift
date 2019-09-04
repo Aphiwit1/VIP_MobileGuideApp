@@ -73,7 +73,7 @@ class TabAllInteractor: TabAllInteractorInterface {
         first.rating > second.rating
       }
       
-   
+       
         let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
         presenter.presentData(response: response)
      

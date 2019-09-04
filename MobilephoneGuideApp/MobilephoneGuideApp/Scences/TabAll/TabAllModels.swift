@@ -43,7 +43,7 @@ struct TabAll {
         case RatingHightToLow
       }
       let sortType:sortTyle
-      let tagSoprt: Int
+      let tagSort: Int
     }
     
     struct Response {}
