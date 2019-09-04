@@ -89,7 +89,10 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     if editingStyle == .delete {
       guard let id = cell.displayMobile?.mobileID else { return  }
       didTapFavorite(with: id, isSelected: false)
+      let request = TabAll.ShowFavouritesTab.Request()
+      interactor.getFavouriteMobiles(request: request)
     }
+    
   }
   
   func displayLoadTableView() {

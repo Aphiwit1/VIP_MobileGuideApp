@@ -130,7 +130,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func filterFavoriteSection() {
         let favourites = mDataArrayForAllSection.filter { $0.favSelected ?? false }
-        let names = favourites.map { $0.description }
+//        let names = favourites.map { $0.description }
         mDataArray = favourites
     }
   
