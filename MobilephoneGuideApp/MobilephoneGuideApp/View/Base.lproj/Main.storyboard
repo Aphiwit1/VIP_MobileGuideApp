@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V72-ZZ-ir6">
-                                <rect key="frame" x="0.0" y="134" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="765"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tabAllCell" rowHeight="167" id="f94-jk-eqB" customClass="TabAllCell" customModule="MobilephoneGuideApp" customModuleProvider="target">
@@ -318,29 +318,46 @@
                                     <outlet property="delegate" destination="Mlq-eF-64g" id="2Ed-sX-5GL"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-Mu-Rhl">
-                                <rect key="frame" x="86" y="96" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="All">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="allButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="NnQ-21-A44"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-VK-kaM">
-                                <rect key="frame" x="258" y="96" width="69" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Favourite"/>
-                                <connections>
-                                    <action selector="favButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="px3-FG-WTK"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1s-YW-PlL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-Mu-Rhl">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="All">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="NnQ-21-A44"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGI-VK-kaM">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Favourite"/>
+                                        <connections>
+                                            <action selector="favButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="px3-FG-WTK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="H7K-Mu-Rhl" firstAttribute="leading" secondItem="N1s-YW-PlL" secondAttribute="leading" id="LhT-3Z-FiW"/>
+                                    <constraint firstAttribute="trailing" secondItem="mGI-VK-kaM" secondAttribute="trailing" id="SQP-Nh-E2n"/>
+                                    <constraint firstAttribute="height" constant="43" id="VDb-tP-K3P"/>
+                                    <constraint firstAttribute="bottom" secondItem="mGI-VK-kaM" secondAttribute="bottom" id="Z1d-df-eLt"/>
+                                    <constraint firstItem="mGI-VK-kaM" firstAttribute="top" secondItem="N1s-YW-PlL" secondAttribute="top" id="c9F-Od-AcF"/>
+                                    <constraint firstItem="H7K-Mu-Rhl" firstAttribute="top" secondItem="N1s-YW-PlL" secondAttribute="top" id="eBC-q1-VOV"/>
+                                    <constraint firstItem="mGI-VK-kaM" firstAttribute="leading" secondItem="H7K-Mu-Rhl" secondAttribute="trailing" id="fKL-MX-sg4"/>
+                                    <constraint firstItem="H7K-Mu-Rhl" firstAttribute="width" secondItem="mGI-VK-kaM" secondAttribute="width" id="faz-Xw-N1I"/>
+                                    <constraint firstAttribute="bottom" secondItem="H7K-Mu-Rhl" secondAttribute="bottom" id="qbo-qc-2lO"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opj-gf-e5B">
-                                <rect key="frame" x="0.0" y="134" width="414" height="6"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="6"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="6" id="qn3-6N-GJm"/>
@@ -350,18 +367,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="V72-ZZ-ir6" firstAttribute="leading" secondItem="OKP-0j-UvD" secondAttribute="leading" id="0Fv-tk-9Rq"/>
-                            <constraint firstItem="opj-gf-e5B" firstAttribute="top" secondItem="H7K-Mu-Rhl" secondAttribute="bottom" constant="8" id="8Er-Um-MDW"/>
-                            <constraint firstItem="mGI-VK-kaM" firstAttribute="top" secondItem="OKP-0j-UvD" secondAttribute="top" constant="8" id="FQI-NR-x5D"/>
-                            <constraint firstItem="V72-ZZ-ir6" firstAttribute="top" secondItem="H7K-Mu-Rhl" secondAttribute="bottom" constant="8" id="H92-KE-RyN"/>
-                            <constraint firstItem="H7K-Mu-Rhl" firstAttribute="leading" secondItem="OKP-0j-UvD" secondAttribute="leading" constant="86" id="IVX-PO-AAg"/>
+                            <constraint firstItem="V72-ZZ-ir6" firstAttribute="top" secondItem="N1s-YW-PlL" secondAttribute="bottom" id="MCa-n0-Ajv"/>
                             <constraint firstAttribute="bottom" secondItem="V72-ZZ-ir6" secondAttribute="bottom" id="Me8-6G-NwQ"/>
-                            <constraint firstItem="V72-ZZ-ir6" firstAttribute="top" secondItem="H7K-Mu-Rhl" secondAttribute="bottom" constant="8" id="NIy-We-42I"/>
-                            <constraint firstItem="OKP-0j-UvD" firstAttribute="trailing" secondItem="mGI-VK-kaM" secondAttribute="trailing" constant="87" id="PaM-ZR-Xa5"/>
+                            <constraint firstItem="N1s-YW-PlL" firstAttribute="leading" secondItem="OKP-0j-UvD" secondAttribute="leading" id="TJ8-fs-1LP"/>
                             <constraint firstItem="opj-gf-e5B" firstAttribute="trailing" secondItem="OKP-0j-UvD" secondAttribute="trailing" id="U7j-Lj-a4h"/>
-                            <constraint firstItem="H7K-Mu-Rhl" firstAttribute="top" secondItem="OKP-0j-UvD" secondAttribute="top" constant="8" id="WUN-a8-swI"/>
-                            <constraint firstItem="V72-ZZ-ir6" firstAttribute="top" secondItem="mGI-VK-kaM" secondAttribute="bottom" constant="8" id="b0o-CS-DWv"/>
+                            <constraint firstItem="opj-gf-e5B" firstAttribute="top" secondItem="N1s-YW-PlL" secondAttribute="bottom" id="gX1-A5-5VN"/>
                             <constraint firstItem="V72-ZZ-ir6" firstAttribute="trailing" secondItem="OKP-0j-UvD" secondAttribute="trailing" id="o9o-Kb-rRK"/>
+                            <constraint firstItem="N1s-YW-PlL" firstAttribute="top" secondItem="OKP-0j-UvD" secondAttribute="top" id="w7S-T2-jnO"/>
                             <constraint firstItem="opj-gf-e5B" firstAttribute="leading" secondItem="OKP-0j-UvD" secondAttribute="leading" id="y40-cv-GeI"/>
+                            <constraint firstItem="N1s-YW-PlL" firstAttribute="trailing" secondItem="OKP-0j-UvD" secondAttribute="trailing" id="yJh-bw-dqu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OKP-0j-UvD"/>
                     </view>

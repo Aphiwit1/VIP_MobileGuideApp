@@ -72,7 +72,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     if favouriteTabButton.isSelected {
        cell?.mobileFavBtn.isHidden = true
     }
-    
+  
     let item = mobileList[indexPath.row]
     cell?.configureCell(with: item)
     cell?.delegate = self
@@ -109,7 +109,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     var sortType : Int = 0
     if self.allTabButton.isSelected {
       sortType = allTabButton.tag
-    } else {
+    } else if self.favouriteTabButton.isSelected {
       sortType = favouriteTabButton.tag
     }
     
