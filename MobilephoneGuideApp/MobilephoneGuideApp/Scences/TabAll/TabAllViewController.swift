@@ -41,11 +41,11 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     
     let presenter = TabAllPresenter()
     presenter.viewController = viewController
-    
+
     let interactor = TabAllInteractor()
     interactor.presenter = presenter
     interactor.worker = TabAllWorker(store: TabAllStore())
-    
+
     viewController.interactor = interactor
     viewController.router = router
   }
@@ -57,6 +57,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     loadTable()
     favouriteTabButton.setTitleColor(.gray, for: .normal)
     allTabButton.setTitleColor(.black, for: .normal)
+    
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +72,8 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     let cell = tableView.dequeueReusableCell(withIdentifier: "tabAllCell") as? TabAllCell
     if favouriteTabButton.isSelected {
        cell?.mobileFavBtn.isHidden = true
+    }else if allTabButton.isSelected{
+      cell?.mobileFavBtn.isHidden = false
     }
   
     let item = mobileList[indexPath.row]
@@ -80,19 +83,26 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   }
   
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
+        return true
   }
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    guard let cell = tableView.cellForRow(at: indexPath) as? TabAllCell else {
-      return
-    }
+    guard let cell = tableView.cellForRow(at: indexPath) as? TabAllCell
+      else { return }
     if editingStyle == .delete {
       guard let id = cell.displayMobile?.mobileID else { return  }
       didTapFavorite(with: id, isSelected: false)
       let request = TabAll.ShowFavouritesTab.Request()
+  
       interactor.getFavouriteMobiles(request: request)
     }
-    
+  }
+  
+  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    if favouriteTabButton.isSelected {
+       return UITableViewCell.EditingStyle.delete
+    }else {
+      return UITableViewCell.EditingStyle.none
+    }
   }
   
   func displayLoadTableView() {
@@ -137,15 +147,25 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   @IBAction func favButton(sender: UIButton){
     let request = TabAll.ShowFavouritesTab.Request()
     interactor.getFavouriteMobiles(request: request)
-    allTabButton.setTitleColor(.gray, for: .normal)
-    favouriteTabButton.setTitleColor(.black, for: .normal)
+    favouriteTabButton.isSelected = true
+    if favouriteTabButton.isSelected {
+      allTabButton.setTitleColor(.gray, for: .normal)
+      favouriteTabButton.setTitleColor(.black, for: .normal)
+    }
+    allTabButton.isSelected = false
+  
   }
   
   @IBAction func allButton(sender: UIButton){
     let request = TabAll.ShowAllTab.Request()
     interactor.getAllMobiles(resquest: request)
-    favouriteTabButton.setTitleColor(.gray, for: .normal)
-    allTabButton.setTitleColor(.black, for: .normal)
+    allTabButton.isSelected = true
+    if allTabButton.isSelected {
+      favouriteTabButton.setTitleColor(.gray, for: .normal)
+      allTabButton.setTitleColor(.black, for: .normal)
+    }
+    favouriteTabButton.isSelected = false
+   
   }
 }
 
@@ -156,16 +176,12 @@ extension TabAllViewController: TabAllCellDelegate {
   }
   
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
-    
     mobileList = viewModel.mobileFavList
   }
   
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
-  
-  
-  
   
 }
 
