@@ -29,14 +29,13 @@ class TabAllInteractor: TabAllInteractorInterface {
       let response = TabAll.FeedDataTable.Response(mobileListModel: result)
       self.presenter.presentData(response: response)
       self.dataArray = result
-
     })
   }
   
   func setFavourite(request: TabAll.SetFavData.Request) {
     for i in dataArray {
       if i.id == request.mobileID {
-         i.favSelected = request.isFav
+        i.favSelected = request.isFav
       }
     }
     let response = TabAll.SetFavData.Response(mobileListModel: dataArray)
@@ -44,7 +43,6 @@ class TabAllInteractor: TabAllInteractorInterface {
   }
   
   func showAllTab(request: TabAll.SetFavData.Request) {
-    
   }
   
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request) {
@@ -54,13 +52,15 @@ class TabAllInteractor: TabAllInteractorInterface {
   }
   
   func getAllMobiles(resquest: TabAll.ShowAllTab.Request) {
-      let response = TabAll.ShowAllTab.Response(mobileListModel: dataArray)
-      presenter.presentAllTab(response: response)
+    let response = TabAll.ShowAllTab.Response(mobileListModel: dataArray)
+    presenter.presentAllTab(response: response)
   }
+  
   
   func getSorting(resquest: TabAll.SortTable.Request) {
     switch resquest.sortType {
     case .PriceHightToLow :
+//     dataArray.sort { $0.price > $1.price }
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
         first.price > second.price
       }
@@ -73,22 +73,17 @@ class TabAllInteractor: TabAllInteractorInterface {
         first.rating > second.rating
       }
     }
-    if resquest.tagSort == 0 {
+    
+    if resquest.BtntagSelected == 0 {
       let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
       presenter.presentData(response: response)
-    }else if resquest.tagSort == 1 {
-      let response = TabAll.ShowFavouritesTab.Response(mobileListModel: dataArray)
+    }else if resquest.BtntagSelected == 1 {
+      let dataArrayForFavourite = dataArray.filter() {
+         $0.favSelected ?? false
+      }
+      let response = TabAll.ShowFavouritesTab.Response(mobileListModel: dataArrayForFavourite)
       presenter.presentFavouriteTab(response: response)
     }
-   
-  
-   
-    
-
   }
-  
-  
-
-  
 }
 

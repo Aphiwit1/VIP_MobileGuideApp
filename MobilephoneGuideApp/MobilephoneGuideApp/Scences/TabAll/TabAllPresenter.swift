@@ -41,14 +41,13 @@ class TabAllPresenter: TabAllPresenterInterface {
   func presentDataFavourite(response: TabAll.SetFavData.Response) {
   }
   
-  
   func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response) {
     let displayFavList = response.mobileListModel.map {
       TabAll.DisplayMobile(
         mobileID: $0.id,
         mobilename: $0.name,
-        mobileRating: "Rating: $\(String($0.rating))",
-        mobilePrice: "Price: $\(String($0.price))",
+        mobileRating: "Rating:\(String($0.rating))",
+        mobilePrice: "Price:$\(String($0.price))",
         mobileDescription: $0.description,
         mobileImage: $0.thumbImageURL,
         isFav: $0.favSelected ?? false
@@ -57,14 +56,13 @@ class TabAllPresenter: TabAllPresenterInterface {
     let mobileFavList = TabAll.ShowFavouritesTab.ViewModel(mobileFavList: displayFavList)
     viewController.displayFavouriteTab(viewModel: mobileFavList)
   }
-  
   func presentAllTab(response: TabAll.ShowAllTab.Response) {
     let displayAllList = response.mobileListModel.map {
       TabAll.DisplayMobile(
         mobileID: $0.id,
         mobilename: $0.name,
-        mobileRating: "Rating: $\(String($0.rating))",
-        mobilePrice: "Price: $\(String($0.price))",
+        mobileRating: "Rating:\(String($0.rating))",
+        mobilePrice: "Price:$\(String($0.price))",
         mobileDescription: $0.description,
         mobileImage: $0.thumbImageURL,
         isFav: $0.favSelected ?? false

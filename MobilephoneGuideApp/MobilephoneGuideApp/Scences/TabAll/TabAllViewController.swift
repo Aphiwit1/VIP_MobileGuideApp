@@ -51,7 +51,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   }
   
   // MARK: - View lifecycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     loadTable()
@@ -85,6 +84,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
   }
+  
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? TabAllCell
       else { return }
@@ -92,7 +92,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
       guard let id = cell.displayMobile?.mobileID else { return  }
       didTapFavorite(with: id, isSelected: false)
       let request = TabAll.ShowFavouritesTab.Request()
-  
       interactor.getFavouriteMobiles(request: request)
     }
   }
@@ -127,18 +126,18 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     }
     
     let alert = UIAlertController(title: "Sorting", message: "", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Price low to hight", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .PriceHightToLow,tagSort: sortType)
+    alert.addAction(UIAlertAction(title: "Price low to high", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .PriceLowToHight,BtntagSelected: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     
-    alert.addAction(UIAlertAction(title: "Price height to low", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .PriceLowToHight, tagSort: sortType)
+    alert.addAction(UIAlertAction(title: "Price heigh to low", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     
-    alert.addAction(UIAlertAction(title: "rating hight to low", style: .default, handler: { _ in
-      let request = TabAll.SortTable.Request(sortType: .RatingHightToLow, tagSort: sortType)
+    alert.addAction(UIAlertAction(title: "rating high to low", style: .default, handler: { _ in
+      let request = TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: sortType)
       self.interactor.getSorting(resquest: request)
     }))
     present(alert, animated: true, completion: nil)
@@ -165,7 +164,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
       allTabButton.setTitleColor(.black, for: .normal)
     }
     favouriteTabButton.isSelected = false
-   
   }
 }
 
@@ -174,11 +172,9 @@ extension TabAllViewController: TabAllCellDelegate {
     let request = TabAll.SetFavData.Request(mobileID: mobileId, isFav: isSelected)
     interactor.setFavourite(request: request)
   }
-  
   func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
-  
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
