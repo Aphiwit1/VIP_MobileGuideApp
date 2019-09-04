@@ -56,7 +56,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     super.viewDidLoad()
     loadTable()
     favouriteTabButton.setTitleColor(.gray, for: .normal)
-    allTabButton.setTitleColor(.blue, for: .normal)
+    allTabButton.setTitleColor(.black, for: .normal)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,14 +135,14 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     let request = TabAll.ShowFavouritesTab.Request()
     interactor.getFavouriteMobiles(request: request)
     allTabButton.setTitleColor(.gray, for: .normal)
-    favouriteTabButton.setTitleColor(.blue, for: .normal)
+    favouriteTabButton.setTitleColor(.black, for: .normal)
   }
   
   @IBAction func allButton(sender: UIButton){
     let request = TabAll.ShowAllTab.Request()
     interactor.getAllMobiles(resquest: request)
     favouriteTabButton.setTitleColor(.gray, for: .normal)
-    allTabButton.setTitleColor(.blue, for: .normal)
+    allTabButton.setTitleColor(.black, for: .normal)
   }
 }
 
