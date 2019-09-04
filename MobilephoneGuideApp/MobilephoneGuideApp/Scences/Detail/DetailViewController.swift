@@ -24,14 +24,11 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   @IBOutlet weak var collectionView: UICollectionView!
   var images : [Detail.GetImage.ViewModel.MobileImage] = []
   // MARK: - Object lifecycle
-  
- 
-  
+    
   override func awakeFromNib() {
     super.awakeFromNib()
     configure(viewController: self)
   }
-
   // MARK: - Configuration
 
   private func configure(viewController: DetailViewController) {
@@ -89,5 +86,4 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
        detailRating.text = viewModel.displayMobile.mobileRating
        detailDescription.text = viewModel.displayMobile.mobileDescription
   }
-  
 }

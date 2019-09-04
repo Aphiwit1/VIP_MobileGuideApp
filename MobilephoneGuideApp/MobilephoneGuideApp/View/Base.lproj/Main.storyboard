@@ -170,6 +170,9 @@
                                         <state key="normal" title="Favourite">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="favButtonWithSender:" destination="Mlq-eF-64g" eventType="touchUpInside" id="px3-FG-WTK"/>
                                         </connections>
