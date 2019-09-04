@@ -28,19 +28,15 @@
 		CB2D5BF6231D58C500C7EF04 /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BEE231D58C500C7EF04 /* DetailEntity.swift */; };
 		CB2D5BF9231DE44500C7EF04 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BF8231DE44500C7EF04 /* DetailCollectionViewCell.swift */; };
 		CBF298F2231509560046FDE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF298F1231509560046FDE0 /* AppDelegate.swift */; };
-		CBF298F4231509560046FDE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF298F3231509560046FDE0 /* ViewController.swift */; };
 		CBF298F7231509560046FDE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF298F5231509560046FDE0 /* Main.storyboard */; };
 		CBF298FA231509560046FDE0 /* MobilephoneGuideApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBF298F8231509560046FDE0 /* MobilephoneGuideApp.xcdatamodeld */; };
 		CBF298FC231509570046FDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF298FB231509570046FDE0 /* Assets.xcassets */; };
 		CBF298FF231509570046FDE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF298FD231509570046FDE0 /* LaunchScreen.storyboard */; };
 		CBF2990A231509570046FDE0 /* MobilephoneGuideAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF29909231509570046FDE0 /* MobilephoneGuideAppTests.swift */; };
 		CBF29915231509580046FDE0 /* MobilephoneGuideAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF29914231509580046FDE0 /* MobilephoneGuideAppUITests.swift */; };
-		CBFC2078231515B20039000A /* TabAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC2077231515B20039000A /* TabAllTableViewCell.swift */; };
 		CBFC207B23151D2A0039000A /* MobilephoneListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */; };
 		CBFC207D23152C740039000A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207C23152C740039000A /* Extension.swift */; };
-		CBFC20832315F47D0039000A /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC20822315F47D0039000A /* CardDetailViewController.swift */; };
 		CBFC2087231619D00039000A /* DetailMobileListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC2086231619D00039000A /* DetailMobileListModel.swift */; };
-		CBFC208B231630F00039000A /* CardDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC208A231630F00039000A /* CardDetailCollectionViewCell.swift */; };
 		CBFC208F2317DCD90039000A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC208E2317DCD90039000A /* APIManager.swift */; };
 		FEFFCCC45DC154786F8101CD /* Pods_MobilephoneGuideAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1272678A164C30C25E6691 /* Pods_MobilephoneGuideAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,7 +84,6 @@
 		CB2D5BF8231DE44500C7EF04 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBF298EE231509560046FDE0 /* MobilephoneGuideApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilephoneGuideApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF298F1231509560046FDE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBF298F3231509560046FDE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBF298F6231509560046FDE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBF298F9231509560046FDE0 /* MobilephoneGuideApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MobilephoneGuideApp.xcdatamodel; sourceTree = "<group>"; };
 		CBF298FB231509570046FDE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,12 +95,9 @@
 		CBF29910231509580046FDE0 /* MobilephoneGuideAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilephoneGuideAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF29914231509580046FDE0 /* MobilephoneGuideAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilephoneGuideAppUITests.swift; sourceTree = "<group>"; };
 		CBF29916231509580046FDE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBFC2077231515B20039000A /* TabAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllTableViewCell.swift; sourceTree = "<group>"; };
 		CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilephoneListModel.swift; sourceTree = "<group>"; };
 		CBFC207C23152C740039000A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		CBFC20822315F47D0039000A /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		CBFC2086231619D00039000A /* DetailMobileListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMobileListModel.swift; sourceTree = "<group>"; };
-		CBFC208A231630F00039000A /* CardDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBFC208E2317DCD90039000A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D9AE834FC612D78D0BFC2D04 /* Pods_MobilephoneGuideAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilephoneGuideAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1272678A164C30C25E6691 /* Pods_MobilephoneGuideAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilephoneGuideAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,7 +250,6 @@
 				CB2D5B8C231CB09B00C7EF04 /* Scences */,
 				CBFC207623150B590039000A /* Model */,
 				CBFC207523150A860039000A /* View */,
-				CBFC207423150A620039000A /* Controller */,
 				CBF298F1231509560046FDE0 /* AppDelegate.swift */,
 				CBF298FB231509570046FDE0 /* Assets.xcassets */,
 				CBF298FD231509570046FDE0 /* LaunchScreen.storyboard */,
@@ -285,17 +276,6 @@
 				CBF29916231509580046FDE0 /* Info.plist */,
 			);
 			path = MobilephoneGuideAppUITests;
-			sourceTree = "<group>";
-		};
-		CBFC207423150A620039000A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				CBF298F3231509560046FDE0 /* ViewController.swift */,
-				CBFC2077231515B20039000A /* TabAllTableViewCell.swift */,
-				CBFC20822315F47D0039000A /* CardDetailViewController.swift */,
-				CBFC208A231630F00039000A /* CardDetailCollectionViewCell.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		CBFC207523150A860039000A /* View */ = {
@@ -541,7 +521,6 @@
 				CB2D5BF4231D58C500C7EF04 /* DetailViewController.swift in Sources */,
 				CB2D5BF1231D58C500C7EF04 /* DetailWorker.swift in Sources */,
 				CB2D5BA3231CD68600C7EF04 /* TabAllCell.swift in Sources */,
-				CBF298F4231509560046FDE0 /* ViewController.swift in Sources */,
 				CB2D5B9B231CBB9F00C7EF04 /* TabAllModels.swift in Sources */,
 				CB2D5BF9231DE44500C7EF04 /* DetailCollectionViewCell.swift in Sources */,
 				CB2D5BF0231D58C500C7EF04 /* DetailPresenter.swift in Sources */,
@@ -557,12 +536,9 @@
 				CBF298F2231509560046FDE0 /* AppDelegate.swift in Sources */,
 				CBFC207D23152C740039000A /* Extension.swift in Sources */,
 				CBFC207B23151D2A0039000A /* MobilephoneListModel.swift in Sources */,
-				CBFC208B231630F00039000A /* CardDetailCollectionViewCell.swift in Sources */,
-				CBFC2078231515B20039000A /* TabAllTableViewCell.swift in Sources */,
 				CB2D5BF5231D58C500C7EF04 /* DetailInteractor.swift in Sources */,
 				CB2D5BF3231D58C500C7EF04 /* DetailModels.swift in Sources */,
 				CBFC2087231619D00039000A /* DetailMobileListModel.swift in Sources */,
-				CBFC20832315F47D0039000A /* CardDetailViewController.swift in Sources */,
 				CB2D5B9D231CBB9F00C7EF04 /* TabAllInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
