@@ -31,7 +31,7 @@ class FeedData{
         AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
             print(response)
             switch response.result {
-            case let .success(value):
+            case .success(_):
                 do {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode([MobileListImage].self, from: response.data!)
