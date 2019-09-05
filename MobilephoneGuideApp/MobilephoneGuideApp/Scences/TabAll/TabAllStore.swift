@@ -9,9 +9,8 @@
 import Foundation
 
 class TabAllStore: TabAllStoreProtocol {
-  
-  func feedContent(completion: @escaping (Result<[MobileList], Error>) -> Void) {
-  }
+//  func feedContent(completion: @escaping (Result<[MobileList], Error>) -> Void) {
+//  }
   
   func getData(_ completion: @escaping (Result<Entity>) -> Void) {
     // Simulates an asynchronous background thread that calls back on the main thread after 2 seconds

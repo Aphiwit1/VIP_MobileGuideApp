@@ -12,7 +12,7 @@ import AlamofireImage
 
 protocol TabAllStoreProtocol {
   func getData(_ completion: @escaping (Result<Entity>) -> Void)
-  func feedContent(completion:  @escaping(_ result: Swift.Result<[MobileList],Error>) -> Void)
+//  func feedContent(completion:  @escaping(_ result: Swift.Result<[MobileList],Error>) -> Void)
 }
 
 class TabAllWorker {
