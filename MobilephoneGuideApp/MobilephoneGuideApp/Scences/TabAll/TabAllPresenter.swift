@@ -21,21 +21,30 @@ class TabAllPresenter: TabAllPresenterInterface {
     weak var viewController: TabAllViewControllerInterface!
     
     func presentData(response: TabAll.FeedDataTable.Response) {
-        let displayMobileList = response.mobileListModel.map {
-            TabAll.DisplayMobile(
-              mobileID: $0.id,
-              mobilename: $0.name,
-              mobileRating: "Rating: \(String($0.rating))",
-              mobilePrice: "Price: $\(String($0.price))",
-              mobileDescription: $0.description,
-              mobileImage: $0.thumbImageURL,
-              isFav: $0.favSelected ?? false
-            )
+      switch response.mobileListModel {
+      case let .success(data):
+        let displayMobileList = data.map {
+          TabAll.DisplayMobile(
+            mobileID: $0.id,
+            mobilename: $0.name,
+            mobileRating: "Rating: \(String($0.rating))",
+            mobilePrice: "Price: $\(String($0.price))",
+            mobileDescription: $0.description,
+            mobileImage: $0.thumbImageURL,
+            isFav: $0.favSelected ?? false
+          )
         }
         let mobileViewModel = TabAll.FeedDataTable.ViewModel(
-            displayMobileList: displayMobileList
+          displayMobileList: .success(displayMobileList)
         )
         viewController.displayResultData(viewModel: mobileViewModel)
+      case let .failure(error):
+        let mobileViewModel = TabAll.FeedDataTable.ViewModel(
+          displayMobileList: .failure(error)
+        )
+        viewController.displayResultData(viewModel: mobileViewModel)
+      }
+      
     }
   
   func presentDataFavourite(response: TabAll.SetFavData.Response) {

@@ -114,7 +114,13 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   }
   
   func displayResultData(viewModel: TabAll.FeedDataTable.ViewModel) {
-    mobileList = viewModel.displayMobileList
+    switch viewModel.displayMobileList {
+    case let .success(data):
+      mobileList = data
+    case let .failure(error):
+      let alertController = UIAlertController(title: "Error", message: error.localizedDescription , preferredStyle: .alert)
+      self.present(alertController, animated: true, completion: nil)
+    }
   }
   
   @IBAction func sortTable(sender: UIBarButtonItem){

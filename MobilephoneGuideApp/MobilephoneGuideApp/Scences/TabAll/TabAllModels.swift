@@ -25,14 +25,14 @@ struct TabAll {
     struct Request {}
     
     struct Response {
-      var mobileListModel: [MobileList]
+//      var mobileListModel: [MobileList]
+      var mobileListModel: Swift.Result<[MobileList],Error>
+      
     }
     struct ViewModel {
-      var displayMobileList : [ DisplayMobile ]
+      var displayMobileList : Swift.Result<[DisplayMobile],Error>
     }
   }
-  
-  
   
   struct SortTable {
     

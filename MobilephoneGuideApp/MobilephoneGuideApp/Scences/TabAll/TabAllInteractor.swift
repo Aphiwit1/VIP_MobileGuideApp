@@ -26,9 +26,16 @@ class TabAllInteractor: TabAllInteractorInterface {
   // MARK: - Business logic=
   func doFeedDataAPI(request: TabAll.FeedDataTable.Request) {
     worker?.feedContent(completion: { (result) in
-      let response = TabAll.FeedDataTable.Response(mobileListModel: result)
-      self.presenter.presentData(response: response)
-      self.dataArray = result
+      switch result {
+      case let .success(data):
+        let response = TabAll.FeedDataTable.Response(mobileListModel: .success(data))
+        self.presenter.presentData(response: response)
+        self.dataArray = data
+      case let .failure(error):
+        let response = TabAll.FeedDataTable.Response(mobileListModel: .failure(error))
+        self.presenter.presentData(response: response)
+      }
+  
     })
   }
   
@@ -56,7 +63,6 @@ class TabAllInteractor: TabAllInteractorInterface {
     presenter.presentAllTab(response: response)
   }
   
-  
   func getSorting(resquest: TabAll.SortTable.Request) {
     switch resquest.sortType {
     case .PriceHightToLow :
@@ -75,7 +81,7 @@ class TabAllInteractor: TabAllInteractorInterface {
     }
     
     if resquest.BtntagSelected == 0 {
-      let response = TabAll.FeedDataTable.Response(mobileListModel: dataArray)
+      let response = TabAll.FeedDataTable.Response(mobileListModel:.success(dataArray))
       presenter.presentData(response: response)
     }else if resquest.BtntagSelected == 1 {
       let dataArrayForFavourite = dataArray.filter() {

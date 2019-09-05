@@ -12,6 +12,7 @@ import AlamofireImage
 
 protocol TabAllStoreProtocol {
   func getData(_ completion: @escaping (Result<Entity>) -> Void)
+  func feedContent(completion:  @escaping(_ result: Swift.Result<[MobileList],Error>) -> Void)
 }
 
 class TabAllWorker {
@@ -24,14 +25,15 @@ class TabAllWorker {
 
     
     //  MARK: - FeedContent
-    func feedContent(completion:  @escaping(_ result: [MobileList]) -> Void) {
+    func feedContent(completion:  @escaping(_ result: Swift.Result<[MobileList],Error>) -> Void) {
         let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles"
         AF.request(baseUrl).response { (response) in
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode([MobileList].self, from: response.data!)
-                completion(result)
+                completion(.success(result))
             }catch {
+                completion(.failure(error))
                 print(error.localizedDescription)
             }
         }

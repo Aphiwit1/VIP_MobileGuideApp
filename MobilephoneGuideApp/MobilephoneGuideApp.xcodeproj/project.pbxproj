@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		004DBC65CD832DF31BB016D6 /* Pods_MobilephoneGuideAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE834FC612D78D0BFC2D04 /* Pods_MobilephoneGuideAppTests.framework */; };
 		12678FBD19E411D101A073E6 /* Pods_MobilephoneGuideApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B7B0EDC601DEA27004DFF /* Pods_MobilephoneGuideApp.framework */; };
+		CB067E93231FD0430002239C /* TabAllInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E91231FD0430002239C /* TabAllInteractorTests.swift */; };
+		CB067E94231FD0430002239C /* TabAllPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E92231FD0430002239C /* TabAllPresenterTests.swift */; };
 		CB2D5B97231CBB9F00C7EF04 /* TabAllStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B8F231CBB9F00C7EF04 /* TabAllStore.swift */; };
 		CB2D5B98231CBB9F00C7EF04 /* TabAllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B90231CBB9F00C7EF04 /* TabAllPresenter.swift */; };
 		CB2D5B99231CBB9F00C7EF04 /* TabAllWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B91231CBB9F00C7EF04 /* TabAllWorker.swift */; };
@@ -64,6 +66,8 @@
 		89480318748F283EC76EAF25 /* Pods-MobilephoneGuideAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideAppTests/Pods-MobilephoneGuideAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B657930A16FBBEA955C2E7EF /* Pods-MobilephoneGuideAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideAppTests.release.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideAppTests/Pods-MobilephoneGuideAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6DF57DDF00AA747EC2DEE78 /* Pods-MobilephoneGuideApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideApp.debug.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideApp/Pods-MobilephoneGuideApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CB067E91231FD0430002239C /* TabAllInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllInteractorTests.swift; sourceTree = "<group>"; };
+		CB067E92231FD0430002239C /* TabAllPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllPresenterTests.swift; sourceTree = "<group>"; };
 		CB2D5B8F231CBB9F00C7EF04 /* TabAllStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllStore.swift; sourceTree = "<group>"; };
 		CB2D5B90231CBB9F00C7EF04 /* TabAllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllPresenter.swift; sourceTree = "<group>"; };
 		CB2D5B91231CBB9F00C7EF04 /* TabAllWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllWorker.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 			children = (
 				CBF29909231509570046FDE0 /* MobilephoneGuideAppTests.swift */,
 				CBF2990B231509570046FDE0 /* Info.plist */,
+				CB067E91231FD0430002239C /* TabAllInteractorTests.swift */,
+				CB067E92231FD0430002239C /* TabAllPresenterTests.swift */,
 			);
 			path = MobilephoneGuideAppTests;
 			sourceTree = "<group>";
@@ -547,7 +553,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB067E93231FD0430002239C /* TabAllInteractorTests.swift in Sources */,
 				CBF2990A231509570046FDE0 /* MobilephoneGuideAppTests.swift in Sources */,
+				CB067E94231FD0430002239C /* TabAllPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

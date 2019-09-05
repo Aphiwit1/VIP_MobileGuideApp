@@ -11,18 +11,18 @@ import Alamofire
 
 class FeedData{
 
-    func feedContent(completion:  @escaping(_ result: [MobileList]) -> Void) {
-        let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles"
-        AF.request(baseUrl).response { (response) in
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode([MobileList].self, from: response.data!)
-                completion(result)
-            }catch {
-                print("---error --->", error.localizedDescription)
-            }
-        }
-    }
+//    func feedContent(completion:  @escaping(_ result: [MobileList]) -> Void) {
+//        let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles"
+//        AF.request(baseUrl).response { (response) in
+//            do {
+//                let decoder = JSONDecoder()
+//                let result = try decoder.decode([MobileList].self, from: response.data!)
+//                completion(result)
+//            }catch {
+//                print("---error --->", error.localizedDescription)
+//            }
+//        }
+//    }
     
     
     // start to feed image content
