@@ -55,8 +55,8 @@ class TabAllPresenter: TabAllPresenterInterface {
       TabAll.DisplayMobile(
         mobileID: $0.id,
         mobilename: $0.name,
-        mobileRating: "Rating:\(String($0.rating))",
-        mobilePrice: "Price:$\(String($0.price))",
+        mobileRating: "Rating: \(String($0.rating))",
+        mobilePrice: "Price: $\(String($0.price))",
         mobileDescription: $0.description,
         mobileImage: $0.thumbImageURL,
         isFav: $0.favSelected ?? false
@@ -71,8 +71,8 @@ class TabAllPresenter: TabAllPresenterInterface {
       TabAll.DisplayMobile(
         mobileID: $0.id,
         mobilename: $0.name,
-        mobileRating: "Rating:\(String($0.rating))",
-        mobilePrice: "Price:$\(String($0.price))",
+        mobileRating: "Rating: \(String($0.rating))",
+        mobilePrice: "Price: $\(String($0.price))",
         mobileDescription: $0.description,
         mobileImage: $0.thumbImageURL,
         isFav: $0.favSelected ?? false

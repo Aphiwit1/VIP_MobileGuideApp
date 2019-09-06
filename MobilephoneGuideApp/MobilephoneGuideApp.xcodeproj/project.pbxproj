@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		004DBC65CD832DF31BB016D6 /* Pods_MobilephoneGuideAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AE834FC612D78D0BFC2D04 /* Pods_MobilephoneGuideAppTests.framework */; };
 		12678FBD19E411D101A073E6 /* Pods_MobilephoneGuideApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B7B0EDC601DEA27004DFF /* Pods_MobilephoneGuideApp.framework */; };
+		CB05A7D7232269FE00F168AF /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05A7D4232269F200F168AF /* DetailPresenterTests.swift */; };
+		CB05A7D8232269FE00F168AF /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05A7D3232269F200F168AF /* DetailInteractorTests.swift */; };
 		CB067E93231FD0430002239C /* TabAllInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E91231FD0430002239C /* TabAllInteractorTests.swift */; };
 		CB067E94231FD0430002239C /* TabAllPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E92231FD0430002239C /* TabAllPresenterTests.swift */; };
 		CB067E962320F30B0002239C /* TabAllEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E952320F30B0002239C /* TabAllEntity.swift */; };
@@ -66,6 +68,8 @@
 		89480318748F283EC76EAF25 /* Pods-MobilephoneGuideAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideAppTests/Pods-MobilephoneGuideAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B657930A16FBBEA955C2E7EF /* Pods-MobilephoneGuideAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideAppTests.release.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideAppTests/Pods-MobilephoneGuideAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6DF57DDF00AA747EC2DEE78 /* Pods-MobilephoneGuideApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideApp.debug.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideApp/Pods-MobilephoneGuideApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CB05A7D3232269F200F168AF /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
+		CB05A7D4232269F200F168AF /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		CB067E91231FD0430002239C /* TabAllInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllInteractorTests.swift; sourceTree = "<group>"; };
 		CB067E92231FD0430002239C /* TabAllPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllPresenterTests.swift; sourceTree = "<group>"; };
 		CB067E952320F30B0002239C /* TabAllEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabAllEntity.swift; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 		CBF29908231509570046FDE0 /* MobilephoneGuideAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB05A7D3232269F200F168AF /* DetailInteractorTests.swift */,
+				CB05A7D4232269F200F168AF /* DetailPresenterTests.swift */,
 				CBF29909231509570046FDE0 /* MobilephoneGuideAppTests.swift */,
 				CBF2990B231509570046FDE0 /* Info.plist */,
 				CB067E91231FD0430002239C /* TabAllInteractorTests.swift */,
@@ -553,9 +559,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB05A7D8232269FE00F168AF /* DetailInteractorTests.swift in Sources */,
 				CB067E93231FD0430002239C /* TabAllInteractorTests.swift in Sources */,
 				CBF2990A231509570046FDE0 /* MobilephoneGuideAppTests.swift in Sources */,
 				CB067E94231FD0430002239C /* TabAllPresenterTests.swift in Sources */,
+				CB05A7D7232269FE00F168AF /* DetailPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

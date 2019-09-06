@@ -24,31 +24,31 @@ class FeedData{
 //        }
 //    }
     
-    
-    // start to feed image content
-    func getDetail_mobileList(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
-        let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
-        AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
-            print(response)
-            switch response.result {
-            case .success(_):
-                do {
-                    let decoder = JSONDecoder()
-                    let result = try decoder.decode([MobileListImage].self, from: response.data!)
-                    completion(result)
-                } catch let error{
-                    print("error case success")
-                    print(error)
-                }
-                break
-            case let .failure(error):
-                print("error case failure")
-                print(error)
-                break
-            }
-        }
-    }
-    
+//
+//    // start to feed image content
+//    func getDetail_mobileList(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
+//        let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
+//        AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
+//            print(response)
+//            switch response.result {
+//            case .success(_):
+//                do {
+//                    let decoder = JSONDecoder()
+//                    let result = try decoder.decode([MobileListImage].self, from: response.data!)
+//                    completion(result)
+//                } catch let error{
+//                    print("error case success")
+//                    print(error)
+//                }
+//                break
+//            case let .failure(error):
+//                print("error case failure")
+//                print(error)
+//                break
+//            }
+//        }
+//    }
+//
     // end to feed image content
     
     
