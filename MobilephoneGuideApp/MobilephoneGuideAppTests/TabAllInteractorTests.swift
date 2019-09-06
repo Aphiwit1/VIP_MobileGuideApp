@@ -21,7 +21,7 @@ class TabAllInteractorTests: XCTestCase {
   
   var sutMobileList = [
     MobileList(
-      rating: 0.0,
+      rating: 5.0,
       id: 1,
       thumbImageURL: "",
       price: 100.0,
@@ -31,7 +31,7 @@ class TabAllInteractorTests: XCTestCase {
       favSelected: false
     ),
     MobileList(
-      rating: 0.0,
+      rating: 4.0,
       id: 2,
       thumbImageURL: "",
       price: 200.0,
@@ -39,6 +39,16 @@ class TabAllInteractorTests: XCTestCase {
       name: "",
       description: "",
       favSelected: false
+    ),
+    MobileList(
+      rating: 3.0,
+      id: 3,
+      thumbImageURL: "",
+      price: 300.0,
+      brand: "",
+      name: "",
+      description: "",
+      favSelected: nil
     )
   ]
   
@@ -251,7 +261,7 @@ class TabAllInteractorTests: XCTestCase {
   }
   
   
-  func testSortingPriceHighToLowToshowResultInPresenterCaseSuccess() {
+  func testSortingPriceHighToLowTabAllToshowResultInPresenterCaseSuccess() {
     //given
     let presenterSpy = TabAllPresenterSpy()
     sut.presenter = presenterSpy
@@ -263,8 +273,95 @@ class TabAllInteractorTests: XCTestCase {
   
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
-    XCTAssertEqual(sut.dataArray[0].price, 200.0)
+    XCTAssertEqual(sut.dataArray[0].price, 300.0)
   }
+  
+   func testSortingPriceLowToHighTabAllToshowResultInPresenterCaseSuccess() {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 0
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
+    
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].price, 100.0)
+    
+  }
+  
+  func testSortingRatingHighToLowTabAllToshowResultInPresenterCaseSuccess()
+  {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 0
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
+    
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].rating, 5)
+  }
+  
+  func testSortingPriceHighToLowTabFavouriteToshowResultInPresenterCaseSuccess() {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 1
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
+    
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].price, 300.0)
+  }
+  
+  
+  func testSortingPriceLowToHighTabFavouriteToshowResultInPresenterCaseSuccess() {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 1
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
+    
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].price, 100.0)
+    
+  }
+  
+  func testSortingRatingHighToLowTabFavouriteToshowResultInPresenterCaseSuccess()
+  {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 1
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
+    
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].rating, 5)
+  }
+  
+  
+  
+  
+  
+  
+  
   
   
   
