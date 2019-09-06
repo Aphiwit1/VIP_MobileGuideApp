@@ -66,7 +66,7 @@ struct TabAll {
     }
     
     struct ViewModel {
-      var mobileFavList: [ DisplayMobile ]
+      var mobileFavList: [DisplayMobile]
       
       
     }
@@ -80,7 +80,7 @@ struct TabAll {
     }
     
     struct ViewModel {
-      var mobileFavList: [ DisplayMobile ]
+      var mobileFavList: [DisplayMobile]
     }
   }
   
@@ -92,7 +92,7 @@ struct TabAll {
     }
     
     struct ViewModel {
-      var mobileFavList: [ DisplayMobile ]
+      var mobileFavList: [DisplayMobile]
     }
   }
   

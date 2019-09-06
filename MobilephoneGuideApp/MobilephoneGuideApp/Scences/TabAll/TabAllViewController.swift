@@ -44,6 +44,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
 
     let interactor = TabAllInteractor()
     interactor.presenter = presenter
+
     interactor.worker = TabAllWorker(store: TabAllStore())
 
     viewController.interactor = interactor
@@ -110,7 +111,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   
   func  loadTable(){
     let request = TabAll.FeedDataTable.Request()
-    interactor?.doFeedDataAPI(request: request)
+    interactor?.fetchMobileList(request: request)
   }
   
   func displayResultData(viewModel: TabAll.FeedDataTable.ViewModel) {

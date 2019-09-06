@@ -19,10 +19,5 @@ import Foundation
  */
 
 class DetailStore: DetailStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void) {
-    // Simulates an asynchronous background thread that calls back on the main thread after 2 seconds
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      completion(Result.success(Entity()))
-    }
-  }
+
 }

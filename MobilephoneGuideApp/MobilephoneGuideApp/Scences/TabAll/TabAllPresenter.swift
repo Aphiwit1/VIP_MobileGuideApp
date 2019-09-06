@@ -65,6 +65,7 @@ class TabAllPresenter: TabAllPresenterInterface {
     let mobileFavList = TabAll.ShowFavouritesTab.ViewModel(mobileFavList: displayFavList)
     viewController.displayFavouriteTab(viewModel: mobileFavList)
   }
+
   func presentAllTab(response: TabAll.ShowAllTab.Response) {
     let displayAllList = response.mobileListModel.map {
       TabAll.DisplayMobile(

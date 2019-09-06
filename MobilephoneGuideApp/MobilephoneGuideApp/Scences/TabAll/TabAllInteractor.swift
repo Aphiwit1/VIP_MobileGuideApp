@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TabAllInteractorInterface {
-  func doFeedDataAPI(request: TabAll.FeedDataTable.Request)
+  func fetchMobileList(request: TabAll.FeedDataTable.Request)
   func setFavourite(request: TabAll.SetFavData.Request)
   func showAllTab(request: TabAll.SetFavData.Request)
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request)
@@ -23,8 +23,10 @@ class TabAllInteractor: TabAllInteractorInterface {
   var presenter: TabAllPresenterInterface!
   var worker: TabAllWorker?
   
+
+  
   // MARK: - Business logic=
-  func doFeedDataAPI(request: TabAll.FeedDataTable.Request) {
+  func fetchMobileList(request: TabAll.FeedDataTable.Request) {
     worker?.feedContent(completion: { (result) in
       switch result {
       case let .success(data):
@@ -35,7 +37,6 @@ class TabAllInteractor: TabAllInteractorInterface {
         let response = TabAll.FeedDataTable.Response(mobileListModel: .failure(error))
         self.presenter.presentData(response: response)
       }
-  
     })
   }
   

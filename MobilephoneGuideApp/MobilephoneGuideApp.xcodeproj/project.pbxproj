@@ -11,6 +11,7 @@
 		12678FBD19E411D101A073E6 /* Pods_MobilephoneGuideApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B7B0EDC601DEA27004DFF /* Pods_MobilephoneGuideApp.framework */; };
 		CB067E93231FD0430002239C /* TabAllInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E91231FD0430002239C /* TabAllInteractorTests.swift */; };
 		CB067E94231FD0430002239C /* TabAllPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E92231FD0430002239C /* TabAllPresenterTests.swift */; };
+		CB067E962320F30B0002239C /* TabAllEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB067E952320F30B0002239C /* TabAllEntity.swift */; };
 		CB2D5B97231CBB9F00C7EF04 /* TabAllStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B8F231CBB9F00C7EF04 /* TabAllStore.swift */; };
 		CB2D5B98231CBB9F00C7EF04 /* TabAllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B90231CBB9F00C7EF04 /* TabAllPresenter.swift */; };
 		CB2D5B99231CBB9F00C7EF04 /* TabAllWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B91231CBB9F00C7EF04 /* TabAllWorker.swift */; };
@@ -18,7 +19,6 @@
 		CB2D5B9B231CBB9F00C7EF04 /* TabAllModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B93231CBB9F00C7EF04 /* TabAllModels.swift */; };
 		CB2D5B9C231CBB9F00C7EF04 /* TabAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B94231CBB9F00C7EF04 /* TabAllViewController.swift */; };
 		CB2D5B9D231CBB9F00C7EF04 /* TabAllInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B95231CBB9F00C7EF04 /* TabAllInteractor.swift */; };
-		CB2D5B9E231CBB9F00C7EF04 /* TabAllEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5B96231CBB9F00C7EF04 /* TabAllEntity.swift */; };
 		CB2D5BA3231CD68600C7EF04 /* TabAllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BA2231CD68600C7EF04 /* TabAllCell.swift */; };
 		CB2D5BEF231D58C500C7EF04 /* DetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BE7231D58C500C7EF04 /* DetailStore.swift */; };
 		CB2D5BF0231D58C500C7EF04 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D5BE8231D58C500C7EF04 /* DetailPresenter.swift */; };
@@ -68,6 +68,7 @@
 		B6DF57DDF00AA747EC2DEE78 /* Pods-MobilephoneGuideApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideApp.debug.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideApp/Pods-MobilephoneGuideApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CB067E91231FD0430002239C /* TabAllInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllInteractorTests.swift; sourceTree = "<group>"; };
 		CB067E92231FD0430002239C /* TabAllPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllPresenterTests.swift; sourceTree = "<group>"; };
+		CB067E952320F30B0002239C /* TabAllEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabAllEntity.swift; sourceTree = "<group>"; };
 		CB2D5B8F231CBB9F00C7EF04 /* TabAllStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllStore.swift; sourceTree = "<group>"; };
 		CB2D5B90231CBB9F00C7EF04 /* TabAllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllPresenter.swift; sourceTree = "<group>"; };
 		CB2D5B91231CBB9F00C7EF04 /* TabAllWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllWorker.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		CB2D5B93231CBB9F00C7EF04 /* TabAllModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllModels.swift; sourceTree = "<group>"; };
 		CB2D5B94231CBB9F00C7EF04 /* TabAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllViewController.swift; sourceTree = "<group>"; };
 		CB2D5B95231CBB9F00C7EF04 /* TabAllInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllInteractor.swift; sourceTree = "<group>"; };
-		CB2D5B96231CBB9F00C7EF04 /* TabAllEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllEntity.swift; sourceTree = "<group>"; };
 		CB2D5BA2231CD68600C7EF04 /* TabAllCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAllCell.swift; sourceTree = "<group>"; };
 		CB2D5BE7231D58C500C7EF04 /* DetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStore.swift; sourceTree = "<group>"; };
 		CB2D5BE8231D58C500C7EF04 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				CB2D5B93231CBB9F00C7EF04 /* TabAllModels.swift */,
 				CB2D5B94231CBB9F00C7EF04 /* TabAllViewController.swift */,
 				CB2D5B95231CBB9F00C7EF04 /* TabAllInteractor.swift */,
-				CB2D5B96231CBB9F00C7EF04 /* TabAllEntity.swift */,
+				CB067E952320F30B0002239C /* TabAllEntity.swift */,
 			);
 			path = TabAll;
 			sourceTree = "<group>";
@@ -524,6 +524,7 @@
 			files = (
 				CB2D5B98231CBB9F00C7EF04 /* TabAllPresenter.swift in Sources */,
 				CBF298FA231509560046FDE0 /* MobilephoneGuideApp.xcdatamodeld in Sources */,
+				CB067E962320F30B0002239C /* TabAllEntity.swift in Sources */,
 				CB2D5BF4231D58C500C7EF04 /* DetailViewController.swift in Sources */,
 				CB2D5BF1231D58C500C7EF04 /* DetailWorker.swift in Sources */,
 				CB2D5BA3231CD68600C7EF04 /* TabAllCell.swift in Sources */,
@@ -535,7 +536,6 @@
 				CBFC208F2317DCD90039000A /* APIManager.swift in Sources */,
 				CB2D5BEF231D58C500C7EF04 /* DetailStore.swift in Sources */,
 				CB2D5B97231CBB9F00C7EF04 /* TabAllStore.swift in Sources */,
-				CB2D5B9E231CBB9F00C7EF04 /* TabAllEntity.swift in Sources */,
 				CB2D5BF2231D58C500C7EF04 /* DetailRouter.swift in Sources */,
 				CB2D5B9A231CBB9F00C7EF04 /* TabAllRouter.swift in Sources */,
 				CB2D5BF6231D58C500C7EF04 /* DetailEntity.swift in Sources */,

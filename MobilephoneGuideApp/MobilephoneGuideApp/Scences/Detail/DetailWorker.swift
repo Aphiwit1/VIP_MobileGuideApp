@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 
 protocol DetailStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void)
+  
 }
 
 class DetailWorker {
@@ -23,14 +23,6 @@ class DetailWorker {
   }
 
   // MARK: - Business Logic
-
-  func doSomeWork(_ completion: @escaping (Result<Entity>) -> Void) {
-    // NOTE: Do the work
-    store.getData {
-      // The worker may perform some small business logic before returning the result to the Interactor
-      completion($0)
-    }
-  }
   
   func feedMobileImageUrls(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
     let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
