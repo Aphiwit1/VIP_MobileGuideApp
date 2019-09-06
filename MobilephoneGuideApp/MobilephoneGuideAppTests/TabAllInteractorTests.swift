@@ -73,7 +73,7 @@ class TabAllInteractorTests: XCTestCase {
   
   // MARK: - Tests
   
-  class TabAllWorkerSpy: TabAllWorker{
+  final class TabAllWorkerSpy: TabAllWorker{
     // MARK: Method call expectations
     
     var shouldFail = false
@@ -114,7 +114,7 @@ class TabAllInteractorTests: XCTestCase {
     }
   }
   
-  class TabAllPresenterSpy: TabAllPresenterInterface {
+  final class TabAllPresenterSpy: TabAllPresenterInterface {
     var presentDataCalled : Bool = false
     
     func presentData(response: TabAll.FeedDataTable.Response) {
@@ -135,12 +135,9 @@ class TabAllInteractorTests: XCTestCase {
     func getSorting(resquest: TabAll.SortTable.Request){
       presentDataCalled = true
     }
-    
+
   
   }
-  
-  
-  
   
   
   func testFetchMobileListShouldAskTabAllWorkerToFetchApiPresenterToShowResultCaseFail()
@@ -223,7 +220,6 @@ class TabAllInteractorTests: XCTestCase {
     
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
-    
   }
   
   func testDidTapSetFavouriteButtonCaseSuccess() {
@@ -355,6 +351,9 @@ class TabAllInteractorTests: XCTestCase {
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].rating, 5)
   }
+  
+  
+  
   
   
   

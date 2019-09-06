@@ -26,3 +26,7 @@ class TabAllWorker {
       }
     }
 }
+
+enum apiError : Error {
+  case runTimeout
+}
