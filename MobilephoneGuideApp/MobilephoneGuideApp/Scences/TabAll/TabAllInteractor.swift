@@ -11,7 +11,6 @@ import UIKit
 protocol TabAllInteractorInterface {
   func fetchMobileList(request: TabAll.FeedDataTable.Request)
   func setFavourite(request: TabAll.SetFavData.Request)
-  func showAllTab(request: TabAll.SetFavData.Request)
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request)
   func getAllMobiles(resquest: TabAll.ShowAllTab.Request)
   func getSorting(resquest: TabAll.SortTable.Request)
@@ -46,12 +45,9 @@ class TabAllInteractor: TabAllInteractorInterface {
         i.favSelected = request.isFav
       }
     }
-    let response = TabAll.SetFavData.Response(mobileListModel: dataArray)
-    self.presenter.presentDataFavourite(response: response)
   }
   
-  func showAllTab(request: TabAll.SetFavData.Request) {
-  }
+ 
   
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request) {
     let favourites = dataArray.filter { $0.favSelected ?? false  }

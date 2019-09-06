@@ -8,8 +8,6 @@
 
 @testable import MobilephoneGuideApp
 import XCTest
-import Alamofire
-import AlamofireImage
 
 enum TestError : Error {
   case fail
@@ -20,6 +18,29 @@ class TabAllInteractorTests: XCTestCase {
   // MARK: - Subject under test
   
   var sut: TabAllInteractor!
+  
+  var sutMobileList = [
+    MobileList(
+      rating: 0.0,
+      id: 1,
+      thumbImageURL: "",
+      price: 100.0,
+      brand: "",
+      name: "",
+      description: "",
+      favSelected: false
+    ),
+    MobileList(
+      rating: 0.0,
+      id: 2,
+      thumbImageURL: "",
+      price: 200.0,
+      brand: "",
+      name: "",
+      description: "",
+      favSelected: false
+    )
+  ]
   
   // MARK: - Test lifecycle
   
@@ -44,7 +65,7 @@ class TabAllInteractorTests: XCTestCase {
   
   class TabAllWorkerSpy: TabAllWorker{
     // MARK: Method call expectations
-
+    
     var shouldFail = false
     
     //   MARK: Spied methods
@@ -87,7 +108,7 @@ class TabAllInteractorTests: XCTestCase {
     var presentDataCalled : Bool = false
     
     func presentData(response: TabAll.FeedDataTable.Response) {
-       presentDataCalled = true
+      presentDataCalled = true
     }
     
     func presentDataFavourite(response: TabAll.SetFavData.Response) {
@@ -100,9 +121,16 @@ class TabAllInteractorTests: XCTestCase {
     func presentAllTab(response: TabAll.ShowAllTab.Response) {
       presentDataCalled = true
     }
+    
+    func getSorting(resquest: TabAll.SortTable.Request){
+      presentDataCalled = true
+    }
+    
+  
   }
   
-
+  
+  
   
   
   func testFetchMobileListShouldAskTabAllWorkerToFetchApiPresenterToShowResultCaseFail()
@@ -118,7 +146,7 @@ class TabAllInteractorTests: XCTestCase {
     sut.fetchMobileList(request: TabAll.FeedDataTable.Request())
     
     // Then
-     XCTAssert(presenterSpy.presentDataCalled)
+    XCTAssert(presenterSpy.presentDataCalled)
   }
   
   func testFetchMobileListShouldAskTabAllWorkerToFetchApiPresenterToShowResultCaseSuccess()
@@ -136,7 +164,7 @@ class TabAllInteractorTests: XCTestCase {
     // Then
     XCTAssert(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray.count, 2)
-  
+    
   }
   
   
@@ -170,7 +198,7 @@ class TabAllInteractorTests: XCTestCase {
       ),
       MobileList(
         rating: 0.0,
-        id: 1,
+        id: 2,
         thumbImageURL: "",
         price: 0.0,
         brand: "",
@@ -183,10 +211,64 @@ class TabAllInteractorTests: XCTestCase {
     //when
     sut.getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request())
     
-   //then
+    //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     
   }
+  
+  func testDidTapSetFavouriteButtonCaseSuccess() {
+     //given
+    sut.dataArray = [
+      MobileList(
+        rating: 0.0,
+        id: 55,
+        thumbImageURL: "",
+        price: 0.0,
+        brand: "",
+        name: "",
+        description: "",
+        favSelected: false
+      ),
+      MobileList(
+        rating: 0.0,
+        id: 80,
+        thumbImageURL: "",
+        price: 0.0,
+        brand: "",
+        name: "",
+        description: "",
+        favSelected: false
+      )
+    ]
+    let mobileID: Int = 55
+    let isFav: Bool = true
+    
+    //when
+    sut.setFavourite(request: TabAll.SetFavData.Request(mobileID: mobileID, isFav: isFav))
+    
+    //then
+    XCTAssertEqual(sut.dataArray[0].favSelected, true)
+  }
+  
+  
+  func testSortingPriceHighToLowToshowResultInPresenterCaseSuccess() {
+    //given
+    let presenterSpy = TabAllPresenterSpy()
+    sut.presenter = presenterSpy
+    let btnTagSelected = 0
+    sut.dataArray = sutMobileList
+    
+    //when
+    sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
+  
+    //then
+    XCTAssertTrue(presenterSpy.presentDataCalled)
+    XCTAssertEqual(sut.dataArray[0].price, 200.0)
+  }
+  
+  
+  
+  
   
   
   
