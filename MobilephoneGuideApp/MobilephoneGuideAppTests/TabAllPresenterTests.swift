@@ -14,8 +14,6 @@ class TabAllPresenterTests: XCTestCase {
   // MARK: - Subject under test
 
   var sut: TabAllPresenter!
-  
-  
   var sutMobileList = [
     MobileList(
       rating: 5.0,
@@ -67,10 +65,17 @@ class TabAllPresenterTests: XCTestCase {
   }
   
   class TabAllViewControllerSpy: TabAllViewControllerInterface {
-    
+   
     var displayData = false
+    var resultFormat: [TabAll.DisplayMobile] = []
+    var mobileListFormat: TabAll.FeedDataTable.ViewModel?
+    
     func displayResultData(viewModel: TabAll.FeedDataTable.ViewModel) {
+      //todo
+     
+      mobileListFormat = viewModel
       displayData = true
+      
     }
     
     func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
@@ -80,10 +85,10 @@ class TabAllPresenterTests: XCTestCase {
     func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
       displayData = true
     }
-    
+
     var presentDataCalled = false
     
-    
+
     
   }
 
@@ -101,15 +106,31 @@ class TabAllPresenterTests: XCTestCase {
   
   func testPresentDataShouldAskViewControllerToDisplayCaseSuccess() {
     // given
+    let expectString = "Rating: 5.0"
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
     let mobileListMock = sutMobileList
+    
 
     // When
     sut.presentData(response: TabAll.FeedDataTable.Response(mobileListModel: .success(mobileListMock)))
-    
+
     // Then
-    XCTAssert(tabAllViewControllerSpy.displayData)
+    XCTAssertTrue(tabAllViewControllerSpy.displayData)
+    guard let mobileListFormat = tabAllViewControllerSpy.mobileListFormat else {
+      return
+    }
+    switch mobileListFormat.displayMobileList {
+    case .success(let displayMobiles):
+      XCTAssertEqual(displayMobiles.first?.mobileRating, expectString)
+    case .failure(let error):
+      print(error.localizedDescription)
+      break
+    }
+   
+//    XCTAssertEqual(, "Rating: 5.0")
+
+
   }
   
   
@@ -138,6 +159,7 @@ class TabAllPresenterTests: XCTestCase {
     
     //then
     XCTAssert(tabAllViewControllerSpy.displayData)
+    
   }
   
   
@@ -168,6 +190,7 @@ class TabAllPresenterTests: XCTestCase {
     
     //then
     XCTAssert(tabAllViewControllerSpy.displayData)
+  
   }
   
   

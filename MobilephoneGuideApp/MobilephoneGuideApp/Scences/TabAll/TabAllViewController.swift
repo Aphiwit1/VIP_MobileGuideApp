@@ -159,7 +159,6 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
       favouriteTabButton.setTitleColor(.black, for: .normal)
     }
     allTabButton.isSelected = false
-  
   }
   
   @IBAction func allButton(sender: UIButton){
