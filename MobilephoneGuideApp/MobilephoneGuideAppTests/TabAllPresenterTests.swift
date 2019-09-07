@@ -98,13 +98,6 @@ class TabAllPresenterTests: XCTestCase {
   
   // MARK: - Tests
   
-  func testSomething() {
-    // Given
-    
-    // When
-    
-    // Then
-  }
   
   func testPresentDataShouldAskViewControllerToDisplayCaseSuccess() {
     // given
@@ -113,8 +106,7 @@ class TabAllPresenterTests: XCTestCase {
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
     let mobileListMock = sutMobileList
-    
-    
+  
     // When
     sut.presentData(response: TabAll.FeedDataTable.Response(mobileListModel: .success(mobileListMock)))
     
@@ -147,7 +139,7 @@ class TabAllPresenterTests: XCTestCase {
   }
   
   
-  func  testPresentFavouriteTabShouldAskViewControllerToDisplayCaseSuccess()  {
+  func  testPresentFavouriteTabRatingAndPriceFormatShouldAskViewControllerToDisplayCaseSuccess()  {
     //given
     
     let expectRating = "Rating: 5.0"
@@ -172,7 +164,7 @@ class TabAllPresenterTests: XCTestCase {
   }
   
   
-  func estPresentFavouriteTabShouldAskViewControllerToDisplayCaseSuccess() {
+  func testPresentFavouriteTabShouldAskViewControllerToDisplayCaseSuccess() {
     //given
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
@@ -186,7 +178,7 @@ class TabAllPresenterTests: XCTestCase {
   }
   
   
-  func testPresentAllTabShouldAskViewControllerToDisplayCaseSuccess() {
+  func testPresenterAllTabShouldAskViewControllerToDisplayCaseSuccess() {
     //given
     
     let expectRating = "Rating: 5.0"
@@ -200,10 +192,7 @@ class TabAllPresenterTests: XCTestCase {
     sut.presentAllTab(response: TabAll.ShowAllTab.Response(mobileListModel: mobileListMock))
     
     //then
-    
-    
     guard let mobileFormatForTabAll = tabAllViewControllerSpy.mobileListFormateForTabAll else { return }
-    
     XCTAssert(tabAllViewControllerSpy.displayData)
     XCTAssertEqual(mobileFormatForTabAll.mobileFavList.first?.mobilePrice, expectPrice)
     XCTAssertEqual(mobileFormatForTabAll.mobileFavList.first?.mobileRating, expectRating)

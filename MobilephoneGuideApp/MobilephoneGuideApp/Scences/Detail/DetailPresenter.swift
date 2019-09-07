@@ -39,8 +39,8 @@ class DetailPresenter: DetailPresenterInterface {
  
     let id = response.displayMobile.mobileID
     let name = response.displayMobile.mobilename
-    let price = "\(String(response.displayMobile.mobilePrice))"
-    let rating = "\(String(response.displayMobile.mobileRating))"
+    let price = response.displayMobile.mobilePrice
+    let rating = response.displayMobile.mobileRating
     let description = response.displayMobile.mobileDescription
     let mobileImage  = response.displayMobile.mobileImage
     

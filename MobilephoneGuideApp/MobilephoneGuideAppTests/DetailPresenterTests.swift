@@ -12,14 +12,22 @@ import XCTest
 class DetailPresenterTests: XCTestCase {
 
   // MARK: - Subject under test
-  
-  
-
   var sut: DetailPresenter!
 
-  // MARK: - Test lifecycle
-
   
+  let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav:  true)
+
+  // MARK: - Test lifecycle
+  class TabDetailViewControllerSpy: DetailViewControllerInterface {
+    var viewControllerIsCalled: Bool = false
+    func displayImage(viewModel: Detail.GetImage.ViewModel) {
+        viewControllerIsCalled = true
+    }
+    func displayDetailText(viewModel: Detail.ShowDetail.ViewModel) {
+        viewControllerIsCalled = true
+    }
+  }
+
   override func setUp() {
     super.setUp()
     setupDetailPresenter()
@@ -39,13 +47,21 @@ class DetailPresenterTests: XCTestCase {
 
   // MARK: - Tests
 
-  func testSomething() {
+  func testDetailPresenterShouldAskDetailViewControllerCaseSuccess() {
     // Given
+    let tabDetailViewControllerSpy = TabDetailViewControllerSpy()
+    sut.viewController = tabDetailViewControllerSpy
+    let mobileDetail = sutMobileListDetail
+    
 
     // When
+    sut.presentDetail(response: Detail.ShowDetail.Response(displayMobile: mobileDetail))
 
     // Then
+    XCTAssertTrue(tabDetailViewControllerSpy.viewControllerIsCalled)
   }
+  
+  
   
   
 
