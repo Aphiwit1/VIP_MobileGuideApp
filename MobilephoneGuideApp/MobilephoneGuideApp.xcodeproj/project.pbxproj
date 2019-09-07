@@ -41,7 +41,6 @@
 		CBFC207B23151D2A0039000A /* MobilephoneListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */; };
 		CBFC207D23152C740039000A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC207C23152C740039000A /* Extension.swift */; };
 		CBFC2087231619D00039000A /* DetailMobileListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC2086231619D00039000A /* DetailMobileListModel.swift */; };
-		CBFC208F2317DCD90039000A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFC208E2317DCD90039000A /* APIManager.swift */; };
 		FEFFCCC45DC154786F8101CD /* Pods_MobilephoneGuideAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1272678A164C30C25E6691 /* Pods_MobilephoneGuideAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +105,6 @@
 		CBFC207A23151D2A0039000A /* MobilephoneListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilephoneListModel.swift; sourceTree = "<group>"; };
 		CBFC207C23152C740039000A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CBFC2086231619D00039000A /* DetailMobileListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMobileListModel.swift; sourceTree = "<group>"; };
-		CBFC208E2317DCD90039000A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D9AE834FC612D78D0BFC2D04 /* Pods_MobilephoneGuideAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilephoneGuideAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1272678A164C30C25E6691 /* Pods_MobilephoneGuideAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilephoneGuideAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAF99F5BC57F9260D38CDA8 /* Pods-MobilephoneGuideApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilephoneGuideApp.release.xcconfig"; path = "Target Support Files/Pods-MobilephoneGuideApp/Pods-MobilephoneGuideApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,22 +162,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CB05A7D923236A1B00F168AF /* DetailPageTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB05A7D4232269F200F168AF /* DetailPresenterTests.swift */,
+				CB05A7D3232269F200F168AF /* DetailInteractorTests.swift */,
+			);
+			path = DetailPageTests;
+			sourceTree = "<group>";
+		};
+		CB05A7DA23236A4500F168AF /* TabAllPageTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB067E92231FD0430002239C /* TabAllPresenterTests.swift */,
+				CB067E91231FD0430002239C /* TabAllInteractorTests.swift */,
+			);
+			path = TabAllPageTests;
+			sourceTree = "<group>";
+		};
 		CB2D5B8C231CB09B00C7EF04 /* Scences */ = {
 			isa = PBXGroup;
 			children = (
 				CB2D5BE6231D58AB00C7EF04 /* Detail */,
 				CB2D5B8E231CB56300C7EF04 /* TabAll */,
-				CB2D5B8D231CB53600C7EF04 /* API */,
 			);
 			path = Scences;
-			sourceTree = "<group>";
-		};
-		CB2D5B8D231CB53600C7EF04 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				CBFC208E2317DCD90039000A /* APIManager.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		CB2D5B8E231CB56300C7EF04 /* TabAll */ = {
@@ -271,12 +278,10 @@
 		CBF29908231509570046FDE0 /* MobilephoneGuideAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB05A7D3232269F200F168AF /* DetailInteractorTests.swift */,
-				CB05A7D4232269F200F168AF /* DetailPresenterTests.swift */,
+				CB05A7DA23236A4500F168AF /* TabAllPageTests */,
+				CB05A7D923236A1B00F168AF /* DetailPageTests */,
 				CBF29909231509570046FDE0 /* MobilephoneGuideAppTests.swift */,
 				CBF2990B231509570046FDE0 /* Info.plist */,
-				CB067E91231FD0430002239C /* TabAllInteractorTests.swift */,
-				CB067E92231FD0430002239C /* TabAllPresenterTests.swift */,
 			);
 			path = MobilephoneGuideAppTests;
 			sourceTree = "<group>";
@@ -539,7 +544,6 @@
 				CB2D5BF0231D58C500C7EF04 /* DetailPresenter.swift in Sources */,
 				CB2D5B9C231CBB9F00C7EF04 /* TabAllViewController.swift in Sources */,
 				CB2D5B99231CBB9F00C7EF04 /* TabAllWorker.swift in Sources */,
-				CBFC208F2317DCD90039000A /* APIManager.swift in Sources */,
 				CB2D5BEF231D58C500C7EF04 /* DetailStore.swift in Sources */,
 				CB2D5B97231CBB9F00C7EF04 /* TabAllStore.swift in Sources */,
 				CB2D5BF2231D58C500C7EF04 /* DetailRouter.swift in Sources */,

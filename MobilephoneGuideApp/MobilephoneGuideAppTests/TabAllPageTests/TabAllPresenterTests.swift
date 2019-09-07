@@ -64,41 +64,30 @@ class TabAllPresenterTests: XCTestCase {
     sut = TabAllPresenter()
   }
   
+  // MARK: - Test doubles
   class TabAllViewControllerSpy: TabAllViewControllerInterface {
-    
-    var displayData = false
+    var isDisplayDataCalled = false
     var mobileListFormat: TabAll.FeedDataTable.ViewModel?
     var mobileListFormatForFav: TabAll.ShowFavouritesTab.ViewModel?
     var mobileListFormateForTabAll: TabAll.ShowAllTab.ViewModel?
     
-    
     func displayResultData(viewModel: TabAll.FeedDataTable.ViewModel) {
-      //todo
       mobileListFormat = viewModel
-      displayData = true
-      
+      isDisplayDataCalled = true
     }
     
     func displayFavouriteTab(viewModel: TabAll.ShowFavouritesTab.ViewModel) {
       mobileListFormatForFav = viewModel
-      displayData = true
+      isDisplayDataCalled = true
     }
     
     func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
-      displayData = true
+      isDisplayDataCalled = true
       mobileListFormateForTabAll = viewModel
-      
     }
-    
-    var presentDataCalled = false
-    
   }
   
-  // MARK: - Test doubles
-  
   // MARK: - Tests
-  
-  
   func testPresentDataShouldAskViewControllerToDisplayCaseSuccess() {
     // given
     let expectString = "Rating: 5.0"
@@ -106,12 +95,10 @@ class TabAllPresenterTests: XCTestCase {
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
     let mobileListMock = sutMobileList
-  
     // When
     sut.presentData(response: TabAll.FeedDataTable.Response(mobileListModel: .success(mobileListMock)))
-    
     // Then
-    XCTAssertTrue(tabAllViewControllerSpy.displayData)
+    XCTAssertTrue(tabAllViewControllerSpy.isDisplayDataCalled)
     guard let mobileListFormat = tabAllViewControllerSpy.mobileListFormat else {
       return
     }
@@ -129,19 +116,16 @@ class TabAllPresenterTests: XCTestCase {
     //given
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
-    
-    
     //when
     sut.presentData(response: TabAll.FeedDataTable.Response(mobileListModel: .failure(apiError.runTimeout)
     ))
     //then
-    XCTAssert(tabAllViewControllerSpy.displayData)
+    XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
   }
   
   
   func  testPresentFavouriteTabRatingAndPriceFormatShouldAskViewControllerToDisplayCaseSuccess()  {
     //given
-    
     let expectRating = "Rating: 5.0"
     let expectPrice = "Price: $100.0"
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
@@ -149,16 +133,13 @@ class TabAllPresenterTests: XCTestCase {
     let mobileListMock = sutMobileList
     //when
     sut.presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response(mobileListModel: mobileListMock))
-    
     //then
-    XCTAssert(tabAllViewControllerSpy.displayData)
+    XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
     guard let mobileListFormat = tabAllViewControllerSpy.mobileListFormatForFav else {
       return
-      
     }
-    
-    XCTAssert(tabAllViewControllerSpy.displayData)
-  XCTAssertEqual(mobileListFormat.mobileFavList.first?.mobilePrice,expectPrice)
+    XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
+    XCTAssertEqual(mobileListFormat.mobileFavList.first?.mobilePrice,expectPrice)
     XCTAssertEqual(mobileListFormat.mobileFavList[0].mobileRating, expectRating)
     
   }
@@ -169,39 +150,27 @@ class TabAllPresenterTests: XCTestCase {
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
     let mobileListMock = sutMobileList
-    
     //when
     sut.presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response(mobileListModel: mobileListMock))
-    
     //then
-    XCTAssert(tabAllViewControllerSpy.displayData)
+    XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
   }
-  
   
   func testPresenterAllTabShouldAskViewControllerToDisplayCaseSuccess() {
     //given
     let expectRating = "Rating: 5.0"
     let expectPrice = "Price: $100.0"
-    
     let tabAllViewControllerSpy = TabAllViewControllerSpy()
     sut.viewController = tabAllViewControllerSpy
     let mobileListMock = sutMobileList
-    
     //when
     sut.presentAllTab(response: TabAll.ShowAllTab.Response(mobileListModel: mobileListMock))
-    
     //then
     guard let mobileFormatForTabAll = tabAllViewControllerSpy.mobileListFormateForTabAll else { return }
-    XCTAssert(tabAllViewControllerSpy.displayData)
+    XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
     XCTAssertEqual(mobileFormatForTabAll.mobileFavList.first?.mobilePrice, expectPrice)
     XCTAssertEqual(mobileFormatForTabAll.mobileFavList.first?.mobileRating, expectRating)
-    
   }
-  
-  
-  
-  
-  
-  
 }
+
 

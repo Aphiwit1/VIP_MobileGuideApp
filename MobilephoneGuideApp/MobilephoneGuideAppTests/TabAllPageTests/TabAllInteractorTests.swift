@@ -16,9 +16,7 @@ enum TestError : Error {
 class TabAllInteractorTests: XCTestCase {
   
   // MARK: - Subject under test
-  
   var sut: TabAllInteractor!
-  
   var sutMobileList = [
     MobileList(
       rating: 5.0,
@@ -64,22 +62,15 @@ class TabAllInteractorTests: XCTestCase {
   }
   
   // MARK: - Test setup
-  
   func setupTabAllInteractor() {
     sut = TabAllInteractor()
   }
   
   // MARK: - Test doubles
-  
-  // MARK: - Tests
-  
   final class TabAllWorkerSpy: TabAllWorker{
     // MARK: Method call expectations
-    
     var shouldFail = false
-    
     //   MARK: Spied methods
-    
     override func feedContent(completion: @escaping (Swift.Result<[MobileList], Error>) -> Void) {
       if shouldFail {
         completion(.failure(TestError.fail))
@@ -135,11 +126,9 @@ class TabAllInteractorTests: XCTestCase {
     func getSorting(resquest: TabAll.SortTable.Request){
       presentDataCalled = true
     }
-
-  
   }
   
-  
+  // MARK: - Tests
   func testFetchMobileListShouldAskTabAllWorkerToFetchApiPresenterToShowResultCaseFail()
   {
     // Given
@@ -148,10 +137,8 @@ class TabAllInteractorTests: XCTestCase {
     tabAllWorkerSpy.shouldFail = true
     let presenterSpy = TabAllPresenterSpy()
     sut.presenter = presenterSpy
-    
     // When
     sut.fetchMobileList(request: TabAll.FeedDataTable.Request())
-    
     // Then
     XCTAssert(presenterSpy.presentDataCalled)
   }
@@ -164,10 +151,8 @@ class TabAllInteractorTests: XCTestCase {
     tabAllWorkerSpy.shouldFail = false
     let presenterSpy = TabAllPresenterSpy()
     sut.presenter = presenterSpy
-    
     // When
     sut.fetchMobileList(request: TabAll.FeedDataTable.Request())
-    
     // Then
     XCTAssert(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray.count, 2)
@@ -180,10 +165,8 @@ class TabAllInteractorTests: XCTestCase {
     //given
     let presenterSpy = TabAllPresenterSpy()
     sut.presenter = presenterSpy
-    
     //when
     sut.getAllMobiles(resquest: TabAll.ShowAllTab.Request())
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
   }
@@ -217,7 +200,6 @@ class TabAllInteractorTests: XCTestCase {
     
     //when
     sut.getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request())
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
   }
@@ -248,10 +230,8 @@ class TabAllInteractorTests: XCTestCase {
     ]
     let mobileID: Int = 55
     let isFav: Bool = true
-    
     //when
     sut.setFavourite(request: TabAll.SetFavData.Request(mobileID: mobileID, isFav: isFav))
-    
     //then
     XCTAssertEqual(sut.dataArray[0].favSelected, true)
   }
@@ -263,10 +243,8 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
-  
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 300.0)
@@ -278,14 +256,11 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 100.0)
-    
   }
   
   func testSortingRatingHighToLowTabAllToshowResultInPresenterCaseSuccess()
@@ -295,10 +270,8 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].rating, 5)
@@ -310,10 +283,8 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 300.0)
@@ -326,10 +297,8 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 100.0)
@@ -343,31 +312,10 @@ class TabAllInteractorTests: XCTestCase {
     sut.presenter = presenterSpy
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
-    
     //when
     sut.getSorting(resquest: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
-    
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].rating, 5)
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
