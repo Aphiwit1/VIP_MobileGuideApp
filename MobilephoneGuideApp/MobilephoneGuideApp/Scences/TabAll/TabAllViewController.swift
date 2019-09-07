@@ -184,6 +184,5 @@ extension TabAllViewController: TabAllCellDelegate {
   func displayAllTab(viewModel: TabAll.ShowAllTab.ViewModel) {
     mobileList = viewModel.mobileFavList
   }
-  
 }
 

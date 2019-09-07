@@ -27,7 +27,6 @@ class DetailWorker {
   func feedMobileImageUrls(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
     let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
     AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
-      print(response)
       switch response.result {
       case .success(_):
         do {
@@ -44,4 +43,6 @@ class DetailWorker {
       }
     }
   }
+  
+  
 }
