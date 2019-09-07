@@ -14,7 +14,6 @@ class TabAllStore: TabAllStoreProtocol {
   func feedContent(completion: @escaping (Result<[MobileList], Error>) -> Void) {
     let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles"
     AF.request(baseUrl).response { (response) in
-      
       switch response.result {
       case .success:
         do {

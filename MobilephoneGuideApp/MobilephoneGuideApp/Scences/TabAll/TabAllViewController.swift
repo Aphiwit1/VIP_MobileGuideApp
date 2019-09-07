@@ -135,17 +135,17 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
     let alert = UIAlertController(title: "Sorting", message: "", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Price low to high", style: .default, handler: { _ in
       let request = TabAll.SortTable.Request(sortType: .PriceLowToHight,BtntagSelected: sortType)
-      self.interactor.getSorting(resquest: request)
+      self.interactor.getSorting(request: request)
     }))
     
     alert.addAction(UIAlertAction(title: "Price heigh to low", style: .default, handler: { _ in
       let request = TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: sortType)
-      self.interactor.getSorting(resquest: request)
+      self.interactor.getSorting(request: request)
     }))
     
     alert.addAction(UIAlertAction(title: "rating high to low", style: .default, handler: { _ in
       let request = TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: sortType)
-      self.interactor.getSorting(resquest: request)
+      self.interactor.getSorting(request: request)
     }))
     present(alert, animated: true, completion: nil)
   }
@@ -163,7 +163,7 @@ class TabAllViewController: UIViewController, TabAllViewControllerInterface, UIT
   
   @IBAction func allButton(sender: UIButton){
     let request = TabAll.ShowAllTab.Request()
-    interactor.getAllMobiles(resquest: request)
+    interactor.getAllMobiles(request: request)
     allTabButton.isSelected = true
     if allTabButton.isSelected {
       favouriteTabButton.setTitleColor(.gray, for: .normal)

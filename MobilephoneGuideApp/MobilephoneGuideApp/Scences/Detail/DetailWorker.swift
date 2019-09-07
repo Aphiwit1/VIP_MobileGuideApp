@@ -17,6 +17,7 @@ protocol DetailStoreProtocol {
 class DetailWorker {
 
   var store: DetailStoreProtocol
+  
 
   init(store: DetailStoreProtocol) {
     self.store = store
@@ -25,7 +26,8 @@ class DetailWorker {
   // MARK: - Business Logic
   
   func feedMobileImageUrls(imageID: Int, completion:  @escaping(_ result: [MobileListImage]) -> Void) {
-    let baseUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
+    let baseImagesUrl = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(imageID)/images/"
+    let baseUrl = baseImagesUrl
     AF.request(URL(string: baseUrl)!, method: .get ).responseJSON { response in
       switch response.result {
       case .success(_):
@@ -43,6 +45,4 @@ class DetailWorker {
       }
     }
   }
-  
-  
 }

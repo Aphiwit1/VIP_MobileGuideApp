@@ -18,9 +18,7 @@ class DetailInteractorTests: XCTestCase {
   // MARK: - Test lifecycle
   
   final class TabDetailWorkerSpy: DetailWorker{
-    
     var isShouldFail = false
-    
     override func feedMobileImageUrls(imageID: Int, completion: @escaping ([MobileListImage]) -> Void) {
       completion(
         [MobileListImage(url: "ddd", id: 1, mobileID: 1)]
@@ -51,7 +49,6 @@ class DetailInteractorTests: XCTestCase {
   }
   
   // MARK: - Test setup
-  
   func setupDetailInteractor() {
     sut = DetailInteractor()
   }

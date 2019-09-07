@@ -25,6 +25,4 @@ class TabAllRouter: TabAllRouterInput {
             destinationVC.interactor.mobileDetail = mobile
       viewController.navigationController?.pushViewController(destinationVC, animated: true)
     }
-  
-
 }

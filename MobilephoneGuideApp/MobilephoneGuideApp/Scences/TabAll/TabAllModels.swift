@@ -95,7 +95,6 @@ struct TabAll {
       var mobileFavList: [DisplayMobile]
     }
   }
-  
-  
+
 }
 

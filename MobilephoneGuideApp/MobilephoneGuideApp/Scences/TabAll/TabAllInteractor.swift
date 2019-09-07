@@ -12,8 +12,8 @@ protocol TabAllInteractorInterface {
   func fetchMobileList(request: TabAll.FeedDataTable.Request)
   func setFavourite(request: TabAll.SetFavData.Request)
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request)
-  func getAllMobiles(resquest: TabAll.ShowAllTab.Request)
-  func getSorting(resquest: TabAll.SortTable.Request)
+  func getAllMobiles(request: TabAll.ShowAllTab.Request)
+  func getSorting(request: TabAll.SortTable.Request)
 }
 
 class TabAllInteractor: TabAllInteractorInterface {
@@ -21,8 +21,6 @@ class TabAllInteractor: TabAllInteractorInterface {
   var dataArray: [MobileList] = []
   var presenter: TabAllPresenterInterface!
   var worker: TabAllWorker?
-  
-
   
   // MARK: - Business logic=
   func fetchMobileList(request: TabAll.FeedDataTable.Request) {
@@ -46,22 +44,20 @@ class TabAllInteractor: TabAllInteractorInterface {
       }
     }
   }
-  
- 
-  
+
   func getFavouriteMobiles(request: TabAll.ShowFavouritesTab.Request) {
     let favourites = dataArray.filter { $0.favSelected ?? false  }
     let response = TabAll.ShowFavouritesTab.Response(mobileListModel: favourites)
     presenter.presentFavouriteTab(response: response)
   }
   
-  func getAllMobiles(resquest: TabAll.ShowAllTab.Request) {
+  func getAllMobiles(request: TabAll.ShowAllTab.Request) {
     let response = TabAll.ShowAllTab.Response(mobileListModel: dataArray)
     presenter.presentAllTab(response: response)
   }
   
-  func getSorting(resquest: TabAll.SortTable.Request) {
-    switch resquest.sortType {
+  func getSorting(request: TabAll.SortTable.Request) {
+    switch request.sortType {
     case .PriceHightToLow :
 //     dataArray.sort { $0.price > $1.price }
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
@@ -77,10 +73,10 @@ class TabAllInteractor: TabAllInteractorInterface {
       }
     }
     
-    if resquest.BtntagSelected == 0 {
+    if request.BtntagSelected == 0 {
       let response = TabAll.FeedDataTable.Response(mobileListModel:.success(dataArray))
       presenter.presentData(response: response)
-    }else if resquest.BtntagSelected == 1 {
+    }else if request.BtntagSelected == 1 {
       let dataArrayForFavourite = dataArray.filter() {
          $0.favSelected ?? false
       }

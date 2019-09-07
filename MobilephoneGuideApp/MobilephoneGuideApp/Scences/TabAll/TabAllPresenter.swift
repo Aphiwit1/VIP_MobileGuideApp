@@ -14,12 +14,8 @@ protocol TabAllPresenterInterface {
   func presentFavouriteTab(response: TabAll.ShowFavouritesTab.Response)
   func presentAllTab(response: TabAll.ShowAllTab.Response)
 }
-
-
 class TabAllPresenter: TabAllPresenterInterface {
-  
     weak var viewController: TabAllViewControllerInterface!
-    
     func presentData(response: TabAll.FeedDataTable.Response) {
       switch response.mobileListModel {
       case let .success(data):

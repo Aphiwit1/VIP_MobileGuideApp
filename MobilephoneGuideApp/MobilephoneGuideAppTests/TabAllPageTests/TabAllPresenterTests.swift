@@ -12,8 +12,24 @@ import XCTest
 class TabAllPresenterTests: XCTestCase {
   
   // MARK: - Subject under test
-  
   var sut: TabAllPresenter!
+ 
+  // MARK: - Test lifecycle
+  override func setUp() {
+    super.setUp()
+    setupTabAllPresenter()
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  // MARK: - Test setup
+  func setupTabAllPresenter() {
+    sut = TabAllPresenter()
+  }
+  
+  // MARK: - Test doubles
   var sutMobileList = [
     MobileList(
       rating: 5.0,
@@ -47,24 +63,6 @@ class TabAllPresenterTests: XCTestCase {
     )
   ]
   
-  // MARK: - Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupTabAllPresenter()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: - Test setup
-  
-  func setupTabAllPresenter() {
-    sut = TabAllPresenter()
-  }
-  
-  // MARK: - Test doubles
   class TabAllViewControllerSpy: TabAllViewControllerInterface {
     var isDisplayDataCalled = false
     var mobileListFormat: TabAll.FeedDataTable.ViewModel?
@@ -123,7 +121,6 @@ class TabAllPresenterTests: XCTestCase {
     XCTAssert(tabAllViewControllerSpy.isDisplayDataCalled)
   }
   
-  
   func  testPresentFavouriteTabRatingAndPriceFormatShouldAskViewControllerToDisplayCaseSuccess()  {
     //given
     let expectRating = "Rating: 5.0"
@@ -143,7 +140,6 @@ class TabAllPresenterTests: XCTestCase {
     XCTAssertEqual(mobileListFormat.mobileFavList[0].mobileRating, expectRating)
     
   }
-  
   
   func testPresentFavouriteTabShouldAskViewControllerToDisplayCaseSuccess() {
     //given
