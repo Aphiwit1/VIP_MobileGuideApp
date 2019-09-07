@@ -22,6 +22,7 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
   @IBOutlet weak var detailRating: UILabel!
   @IBOutlet weak var detailDescription: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var detailScrollView: UIScrollView!
   var images : [Detail.GetImage.ViewModel.MobileImage] = []
   // MARK: - Object lifecycle
     

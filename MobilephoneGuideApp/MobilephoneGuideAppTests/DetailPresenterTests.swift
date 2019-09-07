@@ -16,7 +16,7 @@ class DetailPresenterTests: XCTestCase {
 
   
   let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav:  true)
-  let sutImageMobileDetail = MobileListImage(url: "www.scb.com/image", id: 1, mobileID: 1)
+    let sutImageMobileDetail = MobileListImage(url: "www.scb.com/image", id: 1, mobileID: 1)
 
   
   // MARK: - Test lifecycle

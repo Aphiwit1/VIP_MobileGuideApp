@@ -13,7 +13,7 @@ class DetailInteractorTests: XCTestCase {
   
   // MARK: - Subject under test
   var sut: DetailInteractor!
-  let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav:  true)
+  let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav: false)
   
   // MARK: - Test lifecycle
   
@@ -58,8 +58,6 @@ class DetailInteractorTests: XCTestCase {
   
   // MARK: - Test doubles
   
-  
-  
   // MARK: - Tests
   func testInteractorToShowDetailInPresenterCaseSuccess() {
     //given
@@ -85,7 +83,4 @@ class DetailInteractorTests: XCTestCase {
     //then
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
-  
-  
-  
 }
