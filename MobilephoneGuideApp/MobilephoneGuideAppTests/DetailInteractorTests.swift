@@ -86,4 +86,6 @@ class DetailInteractorTests: XCTestCase {
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
   
+  
+  
 }

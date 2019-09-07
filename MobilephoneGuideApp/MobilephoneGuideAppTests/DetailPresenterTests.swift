@@ -16,7 +16,9 @@ class DetailPresenterTests: XCTestCase {
 
   
   let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav:  true)
+  let sutImageMobileDetail = MobileListImage(url: "www.scb.com/image", id: 1, mobileID: 1)
 
+  
   // MARK: - Test lifecycle
   class TabDetailViewControllerSpy: DetailViewControllerInterface {
     var viewControllerIsCalled: Bool = false
@@ -58,6 +60,19 @@ class DetailPresenterTests: XCTestCase {
     sut.presentDetail(response: Detail.ShowDetail.Response(displayMobile: mobileDetail))
 
     // Then
+    XCTAssertTrue(tabDetailViewControllerSpy.viewControllerIsCalled)
+  }
+  
+  func testDetailImagePresenterShouldAskDetailViewControllerCaseSuccess() {
+    //Given
+    let tabDetailViewControllerSpy = TabDetailViewControllerSpy()
+    sut.viewController = tabDetailViewControllerSpy
+    let mobileImage = sutImageMobileDetail
+    
+    //Then
+    sut.presentImageData(response: Detail.GetImage.Response(imageURLs: [mobileImage]))
+   
+    //When
     XCTAssertTrue(tabDetailViewControllerSpy.viewControllerIsCalled)
   }
   

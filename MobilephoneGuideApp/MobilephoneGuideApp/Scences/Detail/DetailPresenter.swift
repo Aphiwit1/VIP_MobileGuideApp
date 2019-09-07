@@ -36,7 +36,6 @@ class DetailPresenter: DetailPresenterInterface {
   }
   
   func presentDetail(response: Detail.ShowDetail.Response) {
- 
     let id = response.displayMobile.mobileID
     let name = response.displayMobile.mobilename
     let price = response.displayMobile.mobilePrice

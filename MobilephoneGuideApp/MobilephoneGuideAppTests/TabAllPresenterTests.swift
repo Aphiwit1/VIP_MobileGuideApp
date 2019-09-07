@@ -180,7 +180,6 @@ class TabAllPresenterTests: XCTestCase {
   
   func testPresenterAllTabShouldAskViewControllerToDisplayCaseSuccess() {
     //given
-    
     let expectRating = "Rating: 5.0"
     let expectPrice = "Price: $100.0"
     
@@ -198,6 +197,8 @@ class TabAllPresenterTests: XCTestCase {
     XCTAssertEqual(mobileFormatForTabAll.mobileFavList.first?.mobileRating, expectRating)
     
   }
+  
+  
   
   
   
