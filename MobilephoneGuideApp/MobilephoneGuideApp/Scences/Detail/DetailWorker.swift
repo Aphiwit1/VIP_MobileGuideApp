@@ -17,7 +17,6 @@ protocol DetailStoreProtocol {
 class DetailWorker {
 
   var store: DetailStoreProtocol
-  
 
   init(store: DetailStoreProtocol) {
     self.store = store
