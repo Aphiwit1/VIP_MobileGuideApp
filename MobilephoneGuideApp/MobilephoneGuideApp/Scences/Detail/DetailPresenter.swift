@@ -45,5 +45,6 @@ class DetailPresenter: DetailPresenterInterface {
     
     let viewModel = Detail.ShowDetail.ViewModel(displayMobile: displayDatail)
      viewController.displayDetailText(viewModel: viewModel)
+    print("Helo World")
   }
 }
