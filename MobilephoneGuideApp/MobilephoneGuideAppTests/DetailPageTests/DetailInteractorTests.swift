@@ -13,7 +13,7 @@ class DetailInteractorTests: XCTestCase {
   
   // MARK: - Subject under test
   var sut: DetailInteractor!
-  let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav: false)
+  let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav: nil)
   
   // MARK: - Test lifecycle
   
@@ -21,7 +21,7 @@ class DetailInteractorTests: XCTestCase {
     var isShouldFail = false
     override func feedMobileImageUrls(imageID: Int, completion: @escaping ([MobileListImage]) -> Void) {
       completion(
-        [MobileListImage(url: "ddd", id: 1, mobileID: 1)]
+        [MobileListImage(url: "www.google.com/image", id: 1, mobileID: 1)]
       )
     }
   }
@@ -68,6 +68,8 @@ class DetailInteractorTests: XCTestCase {
     //then
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
+  
+  
   
   func testInteractorToShowDetailImageInPresenterCaseSuccess() {
     //given

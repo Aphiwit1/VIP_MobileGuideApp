@@ -22,7 +22,7 @@ class TabAllRouter: TabAllRouterInput {
       guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailPage") as? DetailViewController else {
         return assertionFailure("Not found DetailPageStorybaord")
       }
-             destinationVC.title  = mobile.mobilename
+            destinationVC.title  = mobile.mobilename
             destinationVC.interactor.mobileDetail = mobile
       viewController.navigationController?.pushViewController(destinationVC, animated: true)
     }

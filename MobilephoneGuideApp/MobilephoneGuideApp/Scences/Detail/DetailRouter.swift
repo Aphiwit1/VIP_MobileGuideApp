@@ -29,9 +29,5 @@ class DetailRouter: DetailRouterInput {
   }
 
   func passDataToSomewhereScene(segue: UIStoryboardSegue) {
-    // NOTE: Teach the router how to pass data to the next scene
-
-    // let someWhereViewController = segue.destinationViewController as! SomeWhereViewController
-    // someWhereViewController.interactor.model = viewController.interactor.model
   }
 }

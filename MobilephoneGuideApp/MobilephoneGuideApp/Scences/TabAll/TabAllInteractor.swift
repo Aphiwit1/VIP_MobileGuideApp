@@ -38,9 +38,9 @@ class TabAllInteractor: TabAllInteractorInterface {
   }
   
   func setFavourite(request: TabAll.SetFavData.Request) {
-    for i in dataArray {
-      if i.id == request.mobileID {
-        i.favSelected = request.isFav
+    for item in dataArray {
+      if item.id == request.mobileID {
+        item.favSelected = request.isFav
       }
     }
   }
@@ -58,25 +58,25 @@ class TabAllInteractor: TabAllInteractorInterface {
   
   func getSorting(request: TabAll.SortTable.Request) {
     switch request.sortType {
-    case .PriceHightToLow :
+    case .PriceHightToLow:
 //     dataArray.sort { $0.price > $1.price }
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
         first.price > second.price
       }
-    case .PriceLowToHight :
+    case .PriceLowToHight:
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
         first.price < second.price
       }
-    case .RatingHightToLow :
+    case .RatingHightToLow:
       dataArray.sort { (first: MobileList,second: MobileList) -> Bool in
         first.rating > second.rating
       }
     }
     
-    if request.BtntagSelected == 0 {
+    if request.btntagSelected == 0 {
       let response = TabAll.FeedDataTable.Response(mobileListModel:.success(dataArray))
       presenter.presentData(response: response)
-    }else if request.BtntagSelected == 1 {
+    }else if request.btntagSelected == 1 {
       let dataArrayForFavourite = dataArray.filter() {
          $0.favSelected ?? false
       }

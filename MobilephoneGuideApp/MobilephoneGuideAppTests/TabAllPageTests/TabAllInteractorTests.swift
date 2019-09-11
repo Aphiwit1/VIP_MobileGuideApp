@@ -242,7 +242,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceHightToLow, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 300.0)
@@ -255,7 +255,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceLowToHight, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 100.0)
@@ -269,7 +269,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 0
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .RatingHightToLow, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].rating, 5)
@@ -282,7 +282,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceHightToLow, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceHightToLow, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 300.0)
@@ -295,7 +295,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceLowToHight, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .PriceLowToHight, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].price, 100.0)
@@ -309,7 +309,7 @@ class TabAllInteractorTests: XCTestCase {
     let btnTagSelected = 1
     sut.dataArray = sutMobileList
     //when
-    sut.getSorting(request: TabAll.SortTable.Request(sortType: .RatingHightToLow, BtntagSelected: btnTagSelected))
+    sut.getSorting(request: TabAll.SortTable.Request(sortType: .RatingHightToLow, btntagSelected: btnTagSelected))
     //then
     XCTAssertTrue(presenterSpy.presentDataCalled)
     XCTAssertEqual(sut.dataArray[0].rating, 5)

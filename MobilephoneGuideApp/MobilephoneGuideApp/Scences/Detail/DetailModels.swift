@@ -15,18 +15,18 @@ struct Detail {
     struct Request {}
     /// Data struct sent to Presenter
     struct Response {
-      var displayMobile :  TabAll.DisplayMobile
+      var displayMobile:  TabAll.DisplayMobile
     }
     
     /// Data struct sent to ViewController
     struct ViewModel {
-      var displayMobile :  DisplayMobile
+      var displayMobile:  DisplayMobile
       struct DisplayMobile {
         let mobileID: Int
-        let mobilename : String
-        let mobileRating : String
-        let mobilePrice  : String
-        let mobileDescription  : String
+        let mobilename: String
+        let mobileRating: String
+        let mobilePrice: String
+        let mobileDescription : String
         let mobileImage: String
       }
     }
@@ -42,9 +42,9 @@ struct Detail {
   
     struct ViewModel {
       struct MobileImage {
-        var url : String
+        var url: String
       }
-      var mobileImages : [MobileImage]
+      var mobileImages: [MobileImage]
     }
     
   }

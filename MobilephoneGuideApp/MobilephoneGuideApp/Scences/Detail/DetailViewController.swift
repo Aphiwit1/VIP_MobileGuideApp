@@ -59,7 +59,6 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
     interactor.doFeedImageURLs(request: requestImage)
   }
   
-
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return images.count
   }

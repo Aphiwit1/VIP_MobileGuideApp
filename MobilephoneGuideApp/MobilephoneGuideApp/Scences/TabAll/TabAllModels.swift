@@ -12,12 +12,12 @@ struct TabAll {
   
   struct DisplayMobile {
     let mobileID: Int
-    let mobilename : String
-    let mobileRating : String
-    let mobilePrice  : String
-    let mobileDescription  : String
+    let mobilename: String
+    let mobileRating: String
+    let mobilePrice: String
+    let mobileDescription: String
     let mobileImage: String
-    let isFav : Bool
+    let isFav: Bool?
   }
   
   struct FeedDataTable {
@@ -30,7 +30,7 @@ struct TabAll {
       
     }
     struct ViewModel {
-      var displayMobileList : Swift.Result<[DisplayMobile],Error>
+      var displayMobileList: Swift.Result<[DisplayMobile],Error>
     }
   }
   
@@ -42,20 +42,19 @@ struct TabAll {
         case PriceLowToHight
         case RatingHightToLow
       }
-      let sortType:sortTyle
-      let BtntagSelected: Int
+      let sortType: sortTyle
+      let btntagSelected: Int
     }
     
     struct Response {}
     
     struct ViewModel {
-      var mobileSortTyle : [ DisplayMobile ]
+      var mobileSortTyle: [ DisplayMobile ]
       
     }
   }
   
   class SetFavData {
-    
     struct Request {
       let mobileID: Int
       let isFav: Bool
@@ -67,8 +66,6 @@ struct TabAll {
     
     struct ViewModel {
       var mobileFavList: [DisplayMobile]
-      
-      
     }
   }
   

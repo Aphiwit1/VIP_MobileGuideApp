@@ -9,7 +9,6 @@
 import UIKit
 
 protocol DetailPresenterInterface {
-
   func presentDetail(response: Detail.ShowDetail.Response)
   func presentImageData(response: Detail.GetImage.Response)
 }
@@ -28,7 +27,6 @@ class DetailPresenter: DetailPresenterInterface {
       
       let newImage = Detail.GetImage.ViewModel.MobileImage(url: url)
       images.append(newImage)
-      print(image)
     }
     
     let viewModel = Detail.GetImage.ViewModel(mobileImages: images)
@@ -47,8 +45,5 @@ class DetailPresenter: DetailPresenterInterface {
     
     let viewModel = Detail.ShowDetail.ViewModel(displayMobile: displayDatail)
      viewController.displayDetailText(viewModel: viewModel)
-    
   }
-  
-  
 }

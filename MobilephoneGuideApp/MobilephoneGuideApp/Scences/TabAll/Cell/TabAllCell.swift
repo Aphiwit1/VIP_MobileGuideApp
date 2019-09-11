@@ -36,7 +36,7 @@ class TabAllCell: UITableViewCell {
     mobilePrice.text = displayMobile.mobilePrice
     mobileRating.text = displayMobile.mobileRating
     mobileImage.loadImage(url: displayMobile.mobileImage)
-     mobileFavBtn.isSelected = displayMobile.isFav
+    mobileFavBtn.isSelected = displayMobile.isFav ?? false
   }
   
   @IBAction func checkFavouriteButton(sender: UIButton) {
