@@ -7,16 +7,14 @@
 //
 
 import UIKit
-
 protocol DetailInteractorInterface {
   func setUpUI(request: Detail.ShowDetail.Request)
   func doFeedImageURLs(request: Detail.GetImage.Request)
-
   var mobileDetail : TabAll.DisplayMobile? {get set}
 }
 
 class DetailInteractor: DetailInteractorInterface {
-
+  
   var mobileDetail: TabAll.DisplayMobile?
   var presenter: DetailPresenterInterface!
   var worker: DetailWorker?
@@ -27,7 +25,7 @@ class DetailInteractor: DetailInteractorInterface {
   }
   
   func doFeedImageURLs(request: Detail.GetImage.Request) {
-    worker?.feedMobileImageUrls(imageID: mobileDetail?.mobileID ?? 1, completion: { (imageResult) in
+    worker?.feedMobileImageUrls(imageID: mobileDetail?.mobileID ?? 0, completion: { (imageResult) in
       let response = Detail.GetImage.Response(imageURLs: imageResult)
       self.presenter.presentImageData(response: response)
     })

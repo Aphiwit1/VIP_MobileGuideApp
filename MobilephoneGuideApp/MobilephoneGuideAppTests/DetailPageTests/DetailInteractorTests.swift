@@ -15,6 +15,11 @@ class DetailInteractorTests: XCTestCase {
   var sut: DetailInteractor!
   let sutMobileListDetail = TabAll.DisplayMobile(mobileID: 1, mobilename: "", mobileRating: "", mobilePrice: "", mobileDescription: "", mobileImage: "www.google.com/image", isFav: nil)
   
+
+  
+  
+
+  
   // MARK: - Test lifecycle
   
   final class TabDetailWorkerSpy: DetailWorker{
@@ -54,7 +59,7 @@ class DetailInteractorTests: XCTestCase {
   }
   
   // MARK: - Test doubles
-  
+
   // MARK: - Tests
   func testInteractorToShowDetailInPresenterCaseSuccess() {
     //given
@@ -69,8 +74,6 @@ class DetailInteractorTests: XCTestCase {
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
   
-  
-  
   func testInteractorToShowDetailImageInPresenterCaseSuccess() {
     //given
     let presenterSpy = TabDetailPresenterSpy()
@@ -82,4 +85,18 @@ class DetailInteractorTests: XCTestCase {
     //then
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
+  
+  func testInteractorToShowDetailImageInPresenterCaseFail() {
+    //given
+    let presenterSpy = TabDetailPresenterSpy()
+    sut.worker = TabDetailWorkerSpy(store: DetailStore())
+    sut.presenter = presenterSpy
+    sut.mobileDetail = nil
+    //when
+    sut.doFeedImageURLs(request: Detail.GetImage.Request())
+    //then
+    XCTAssertTrue(presenterSpy.dataIsCalled)
+  }
+  
+
 }

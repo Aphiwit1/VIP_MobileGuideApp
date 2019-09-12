@@ -16,7 +16,6 @@ class DetailRouter: DetailRouterInput {
   weak var viewController: DetailViewController!
 
   // MARK: - Navigation
-
   func navigateToSomewhere() {
   }
 

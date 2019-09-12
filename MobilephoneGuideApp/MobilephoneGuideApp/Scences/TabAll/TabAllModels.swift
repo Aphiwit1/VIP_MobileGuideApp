@@ -19,6 +19,7 @@ struct TabAll {
     let mobileImage: String
     let isFav: Bool?
   }
+
   
   struct FeedDataTable {
     

@@ -22,7 +22,7 @@ struct Detail {
     struct ViewModel {
       var displayMobile:  DisplayMobile
       struct DisplayMobile {
-        let mobileID: Int
+        let mobileID: Int?
         let mobilename: String
         let mobileRating: String
         let mobilePrice: String

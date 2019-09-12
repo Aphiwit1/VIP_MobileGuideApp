@@ -5,7 +5,6 @@
 //  Created by AphiwitSCB on 2/9/2562 BE.
 //  Copyright (c) 2562 OnceKB. All rights reserved.
 //
-
 import UIKit
 
 protocol DetailViewControllerInterface: class {
@@ -81,6 +80,7 @@ class DetailViewController: UIViewController, DetailViewControllerInterface,UICo
     print(images)
      self.collectionView.reloadData()
   }
+  
   func displayDetailText(viewModel: Detail.ShowDetail.ViewModel) {
        detailPrice.text = viewModel.displayMobile.mobilePrice
        detailRating.text = viewModel.displayMobile.mobileRating
