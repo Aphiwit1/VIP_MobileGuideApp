@@ -82,4 +82,18 @@ class DetailInteractorTests: XCTestCase {
     //then
     XCTAssertTrue(presenterSpy.dataIsCalled)
   }
+  
+  func testInteractorToShowDetailImageInPresenterCaseFail() {
+    //given
+    let presenterSpy = TabDetailPresenterSpy()
+    sut.worker = TabDetailWorkerSpy(store: DetailStore())
+    sut.presenter = presenterSpy
+    sut.mobileDetail = nil
+    //when
+    sut.doFeedImageURLs(request: Detail.GetImage.Request())
+    //then
+    XCTAssertTrue(presenterSpy.dataIsCalled)
+  }
+  
+  
 }
